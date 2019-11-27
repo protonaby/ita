@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+</head>
+
+<body>
+  <script>
+    function concat1() {
+      let result = '';
+      let args = [...arguments];
+      args.forEach(a => result += a);
+      return result;
+    }
+
+    console.log(''.concat() == concat1(''));
+    console.log('1'.concat(2) == concat1('1', 2));
+    console.log('1'.concat('2') == concat1('1', '2'));
+    console.log('Hello, '.concat('Kevin', '. Have a nice day.') == concat1('Hello, ', 'Kevin', '. Have a nice day.'));
+    var greetList = ['Hello', ' ', 'Venkat', '!'];
+    console.log("".concat(...greetList) == concat1("", ...greetList));
+    console.log("".concat({}) == concat1("", {}));
+    console.log("".concat([]) == concat1("", []));
+    console.log("".concat(null) == concat1("", null));
+    console.log("".concat(true) == concat1("", true));
+    console.log("".concat(4, 5) == concat1("", 4, 5));
+  </script>
+</body>
+<h3>JS concat() implementation</h3>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+</head>
+
+<body>
+  <script>
+    function substr1(str, start, lengths) {
+      if (lengths === undefined)
+        lengths = str.length;
+      if (-start > str.length)
+        start = 0;
+      if (start >= str.lengths)
+        return '';
+      if (start >= 0)
+        return str.slice(start, start + lengths);
+      if (start < 0)
+        return str.slice(start + str.length, start + lengths + str.length);
+    }
+
+    var s = 'Mozilla';
+
+    console.log(s.substr(0, 1) == substr1(s, 0, 1)); // 'M'
+    console.log(s.substr(1, 0) == substr1(s, 1, 0)); // ''
+    console.log(s.substr(-1, 1) == substr1(s, -1, 1)); // 'a'
+    console.log(s.substr(1, -1) == substr1(s, 1, -1)); // ''
+    console.log(s.substr(-3) == substr1(s, -3)); // 'lla'
+    console.log(s.substr(1) == substr1(s, 1)); // 'ozilla'
+    console.log(s.substr(-20, 2) == substr1(s, -20, 2)); // 'Mo'
+    console.log(s.substr(-20) == substr1(s, -20)); // 'Mozilla'
+    console.log(s.substr(20, 2) == substr1(s, 20, 2)); // ''
+  </script>
+  <h3>JS substr() implementation</h3>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+</head>
+
+<body>
+  <script>
+    function includes1(str, searchString, position) {
+      if (!position)
+        position = 0;
+      for (let i = position; i < str.length; i++) {
+        if (str.slice(i, i + searchString.length) == searchString) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    const sentence = 'The quick brown fox jumps over the lazy dog.';
+    const word = 'fox';
+    console.log(sentence.includes(word) == includes1(sentence, word));
+    const str = 'To be, or not to be, that is the question.';
+    console.log(str.includes('To be') == includes1(str, 'To be'));
+    console.log(str.includes('question') == includes1(str, 'question'));
+    console.log(str.includes('nonexistent') == includes1(str, 'nonexistent'));
+    console.log(str.includes('To be', 1) == includes1(str, 'To be', 1));
+    console.log(str.includes('TO BE') == includes1(str, 'TO BE'));
+    console.log(str.includes('') == includes1(str, ''));
+  </script>
+  <h3>JS includes() implementation</h3>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+</head>
+
+<body>
+  <script>
+    function repeat1(str, count) {
+      if (!str || !count || isNaN(count)) return '';
+      if (count < 0 || !isFinite(count)) throw new RangeError("Invalid count value: " + count);
+
+      let result = '';
+      count = parseInt(count, 10);
+      for (let i = 0; i < count; i += 1) {
+        result += str;
+      }
+      return result;
+    }
+
+    console.log('abc'.repeat() == repeat1('abc'));
+    console.log(''.repeat() == repeat1(''));
+    console.log('abc'.repeat(0) == repeat1('abc', 0));
+    console.log('abc'.repeat(1) == repeat1('abc', 1));
+    console.log('abc'.repeat(2) == repeat1('abc', 2));
+    console.log('abc'.repeat(3.5) == repeat1('abc', 3.5));
+    console.log('abc'.repeat('a') == repeat1('abc', 'a'));
+    console.log(repeat1('abc', 1 / 0)); //RangeError is expected
+    console.log(repeat1('abc', -1)); //RangeError is expected
+  </script>
+  <h3>JS repeat() implementation</h3>
+</body>
+
+</html>
