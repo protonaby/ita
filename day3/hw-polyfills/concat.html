@@ -8,11 +8,8 @@
 
 <body>
   <script>
-    function concat1() {
-      let result = '';
-      let args = [...arguments];
-      args.forEach(a => result += a);
-      return result;
+    function concat1(...args) {
+      return args.map(e => String(e)).join('');
     }
 
     console.log(''.concat() == concat1(''));
