@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+  <script src="arraysEqual.js"></script>
+</head>
+
+<body>
+  <script>
+    function fill1(arr, newValue, start = 0, end = arr.length) {
+      if (start < 0)
+        start = start + arr.length;
+      if (end < 0)
+        end = end + arr.length;
+
+      arr = arr.map((value, index) => {
+        if (index >= start && index < end)
+          return newValue;
+        else return value;
+      });
+      return arr;
+    }
+
+    console.log(arraysEqual([1, 2, 3].fill('x'), fill1([1, 2, 3], 'x')));
+    console.log(arraysEqual([1, 2, 3].fill('x', 1), fill1([1, 2, 3], 'x', 1)));
+    console.log(arraysEqual([1, 2, 3].fill('x', 1, 2), fill1([1, 2, 3], 'x', 1, 2)));
+    console.log(arraysEqual([1, 2, 3].fill('x', 1, 1), fill1([1, 2, 3], 'x', 1, 1)));
+    console.log(arraysEqual([1, 2, 3].fill('x', -3, -2), fill1([1, 2, 3], 'x', -3, -2)));
+    console.log(arraysEqual([1, 2, 3].fill('x', NaN, NaN), fill1([1, 2, 3], 'x', NaN, NaN)));
+  </script>
+</body>
+<h3>JS Array.fill implementation</h3>
+
+</html>

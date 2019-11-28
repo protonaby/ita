@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="arraysEqual.js"></script>
+  <title>ita</title>
+</head>
+
+<body>
+  <script>
+    function unshift1(arr, ...args) {
+      reverse1(arr);
+      reverse1(args);
+      for (let i = 0; i < args.length; i += 1) {
+        arr[arr.length] = args[i];
+      }
+      reverse1(arr);
+      return arr.length;
+    }
+
+    function reverse1(arr) {
+      let halfLen = parseInt(arr.length / 2);
+      for (let i = 0; i < halfLen; i += 1) {
+        [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
+      }
+      return arr;
+    }
+
+    let arr = [4, 5, 6];
+    unshift1(arr, 1, 2, 3);
+    console.log(arraysEqual(arr, [1, 2, 3, 4, 5, 6]));
+  </script>
+</body>
+<h3>JS Array.unshift implementation</h3>
+
+</html>

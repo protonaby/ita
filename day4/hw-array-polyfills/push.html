@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+  <script src="arraysEqual.js"></script>
+</head>
+
+<body>
+  <script>
+    function push1(arr, ...args) {
+      for (let i = 0; i < args.length; i += 1) {
+        arr[arr.length] = args[i];
+      }
+      return arr.length;
+    }
+
+    const animals = ['pigs', 'goats', 'sheep'];
+    let count = push1(animals, 'cows');
+    console.log(count == 4);
+    console.log(arraysEqual(animals, ["pigs", "goats", "sheep", "cows"]));
+
+    count = push1(animals, 'chickens', 'cats', 'dogs');
+    console.log(count == 7);
+    console.log(arraysEqual(animals, ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs"]));
+  </script>
+</body>
+<h3>JS Array.push implementation</h3>
+
+</html>

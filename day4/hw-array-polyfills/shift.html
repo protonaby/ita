@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+  <script src="arraysEqual.js"></script>
+</head>
+
+<body>
+  <script>
+    function shift1(arr) {
+      if (!arr.length)
+        return undefined;
+      let firstElement = arr[0];
+      arr.splice(0, 1);
+      return firstElement;
+    }
+    console.log(arraysEqual([1, 2, 3].shift(), shift1([1, 2, 3])));
+    console.log(arraysEqual([1].shift(), shift1([1])));
+    console.log([].shift() == shift1([]));
+  </script>
+</body>
+<h3>JS Array.shift implementation</h3>
+
+</html>

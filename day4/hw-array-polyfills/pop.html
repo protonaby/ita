@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ita</title>
+  <script src="arraysEqual.js"></script>
+</head>
+
+<body>
+  <script>
+    function pop1(arr) {
+      if (!arr.length)
+        return undefined;
+      let lastElement = arr[arr.length - 1];
+      arr.splice(-1, 1);
+      return lastElement;
+    }
+
+    var myFish = ['янгол', 'клоун', 'мандарин', 'осетер'];
+    console.log(pop1(myFish) == 'осетер');
+    console.log(arraysEqual(myFish, ['янгол', 'клоун', 'мандарин']));
+  </script>
+</body>
+<h3>JS Array.pop implementation</h3>
+
+</html>
