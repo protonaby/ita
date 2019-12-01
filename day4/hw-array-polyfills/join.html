@@ -9,6 +9,7 @@
 <body>
   <script>
     function join1(arr, separator) {
+      if(!arr) return '';
       if (separator === undefined) separator = ',';
       let result = '';
       arr.forEach(e => result = result + e + separator);
@@ -23,6 +24,7 @@
     console.log(a.join(', ') == join1(a, ', '));
     console.log(a.join(' + ') == join1(a, ' + '));
     console.log(a.join('') == join1(a, ''));
+    console.log('' == join1('', ''));
   </script>
 </body>
 <h3>JS Array.join implementation</h3>

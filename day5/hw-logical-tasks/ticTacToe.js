@@ -1,10 +1,10 @@
 function ticTacToe(board) {
-  if ([...board].flat().indexOf(0) >= 0)
-    return -1;
   if (checkIfWon(board, 1))
     return 1;
   if (checkIfWon(board, 2))
     return 2;
+  if ([...board].flat().indexOf(0) >= 0)
+    return -1;
   return 0;
 }
 
@@ -51,45 +51,47 @@ console.log(ticTacToe(board) == -1);
 
 board = [
   [1, 1, 1],
-  [2, 1, 2],
+  [2, 1, 0],
   [2, 1, 2]
 ];
 console.log(ticTacToe(board) == 1);
 
- board = [
-  [2, 1, 2],
+board = [
+  [2, 0, 2],
   [1, 1, 1],
   [2, 1, 2]
 ];
 console.log(ticTacToe(board) == 1);
 
- board = [
+board = [
   [2, 1, 2],
   [2, 1, 2],
   [1, 1, 1]
 ];
- board = [
+console.log(ticTacToe(board) == 1);
+
+board = [
   [2, 1, 2],
   [1, 1, 2],
   [2, 1, 1]
 ];
 console.log(ticTacToe(board) == 1);
 
- board = [
+board = [
   [2, 1, 1],
   [1, 2, 1],
   [2, 1, 2]
 ];
 console.log(ticTacToe(board) == 2);
 
- board = [
+board = [
   [2, 2, 1],
   [2, 1, 1],
   [1, 1, 2]
 ];
 console.log(ticTacToe(board) == 1);
 
- board = [
+board = [
   [1, 2, 2],
   [2, 1, 1],
   [1, 1, 2]

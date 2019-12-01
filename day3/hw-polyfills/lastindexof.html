@@ -8,11 +8,10 @@
 
 <body>
   <script>
-    function lastIndexOf1(str, searchValue, fromIndex) {
+    function lastIndexOf1(str, searchValue, fromIndex = str.length) {
       if (!str) return;
-      if (fromIndex === undefined) fromIndex = str.length - 1;
       if (fromIndex < 0) fromIndex = 0;
-      if (searchValue.length == 0) return fromIndex; //todo
+      if (searchValue.length == 0) return fromIndex;
 
       for (let i = fromIndex + 1; i >= 0; i--) {
         if (str.slice(i - searchValue.length, i) == searchValue) {
@@ -28,7 +27,7 @@
     console.log('морок'.lastIndexOf('о', 0) == lastIndexOf1('морок', 'о', 0)); // вертає -1
     console.log('морок'.lastIndexOf('м', -5) == lastIndexOf1('морок', 'м', -5)); // вертає 0
     console.log('морок'.lastIndexOf('м', 0) == lastIndexOf1('морок', 'м', 0)); // вертає  0
-    console.log('морок'.lastIndexOf('') == lastIndexOf1('морок', '')); // вертає  5   //this one fails
+    console.log('морок'.lastIndexOf('') == lastIndexOf1('морок', '')); // вертає  5
     console.log('морок'.lastIndexOf('', 2) == lastIndexOf1('морок', '', 2)); // вертає  2
     let lowerCase = 'брі, дорблю, камамбер';
     let upperCase = 'Брі, Дорблю, Камамбер';

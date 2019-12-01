@@ -13,7 +13,7 @@
       reverse1(arr);
       reverse1(args);
       for (let i = 0; i < args.length; i += 1) {
-        arr[arr.length] = args[i];
+        arr.push(args[i]);
       }
       reverse1(arr);
       return arr.length;
@@ -24,11 +24,11 @@
       for (let i = 0; i < halfLen; i += 1) {
         [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
       }
-      return arr;
+      return arr.length;
     }
 
     let arr = [4, 5, 6];
-    unshift1(arr, 1, 2, 3);
+    console.log(6 == unshift1(arr, 1, 2, 3));
     console.log(arraysEqual(arr, [1, 2, 3, 4, 5, 6]));
   </script>
 </body>

@@ -1,5 +1,5 @@
-function meeting(rooms, need) {
-  if (!need) return 'Game On';
+function meeting(rooms, need=0) {
+  if (need==0) return 'Game On';
   if (need < 0 || need > 8) return 'Invalid need argument';
   let result = [];
   rooms.forEach((value, index) => {
@@ -47,3 +47,8 @@ console.log(meeting([
   ['XXXX', 6],
   ['XXXXX', 4]
 ], 0)); //'Game On'
+console.log(meeting([
+  ['XXX', 3],
+  ['XXXXX', 6],
+  ['XXXXXX', 9]
+], 7)); //'Not enough!'
