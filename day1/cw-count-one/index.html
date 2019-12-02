@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ita</title>
+  </head>
+	<script>
+		function countOne(number) {
+			var binaryNumber = Number(number).toString(2);
+			var result = 0;
+			for (var i=0, len = binaryNumber.length; i < len; i+=1) {
+				var n = +binaryNumber.charAt(i);
+				if (n > 0) 
+					result = result + n;
+			}
+			return result;
+		}
+		
+		function prettyPrint(n) {
+			console.log(n + ' ' + Number(n).toString(2) + ' ' + countOne(n));
+		}
+		prettyPrint(1234);
+		prettyPrint('1234');
+		prettyPrint("1234");
+		prettyPrint(-1234);
+	</script>
+  </body>
+</html>
