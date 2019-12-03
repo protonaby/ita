@@ -4,11 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <title>ita</title>
+  <link rel="stylesheet" href="./lib/mocha.css">
+  <script src="./lib/mocha.js"></script>
+  <script src="./lib/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+  </script>
 </head>
 
 <body>
   <h3>Mission: Hidden Message</h3>
   <script src="decode.js"></script>
+  <script src="decodeSpec.js"></script>
+  <div id="mocha"></div>
+  <script>
+    mocha.run();
+  </script>
 </body>
 
 </html>
