@@ -1,13 +1,13 @@
 export class ViewApod {
     constructor() {
         this.domApod = document.querySelector('.apod');
-        this.btnSearch = document.querySelector('.btn__search');
+        this.btnToday = document.querySelector('.btn__today');
+        this.btnPrev = document.querySelector('.btn__prev');
+        this.btnNext = document.querySelector('.btn__next');
     }
 
     renderAPOD(apod) {
-        let apodStr = '';
-        apodStr += this.prepareApodArticle(apod);
-        this.domApod.innerHTML = apodStr;
+        this.domApod.innerHTML = this.prepareApodArticle(apod);
     }
 
     prepareApodArticle(article) {
@@ -21,8 +21,10 @@ export class ViewApod {
       </div>`;
     }
 
-    addListeners(searchFunc) {
-        this.btnSearch.addEventListener('click', searchFunc);
+    addListenersToday(todayFunc, prevFunc, nextFunc) {
+        this.btnToday.addEventListener('click', todayFunc);
+        this.btnPrev.addEventListener('click', prevFunc);
+        this.btnNext.addEventListener('click', nextFunc);
     }
 
 }
