@@ -9,6 +9,7 @@ export class ControllerApod {
             this.handleClickPrevDayBtn.bind(this),
             this.handleClickNextDayBtn.bind(this));
         this.currentDate = new Date();
+        this.handleClickLoadTodayBtn();
     }
 
     handleClickLoadTodayBtn() {
@@ -20,6 +21,10 @@ export class ControllerApod {
         this.getAPOD(this.currentDate);
     }
     handleClickNextDayBtn() {
+        let date  = new Date();
+        date.setDate(this.currentDate.getDate() + 1);
+        if(date > new Date())
+            return;
         this.currentDate.setDate(this.currentDate.getDate() + 1);
         this.getAPOD(this.currentDate);
     }
