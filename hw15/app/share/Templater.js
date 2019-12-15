@@ -1,8 +1,16 @@
 export class Templater {
     constructor(url) {
+        if (!!Templater.instance) {
+            return Templater.instance;
+        }
+
+        Templater.instance = this;
+
         this.url = url;
         this.templateStr = '';
         this.getTemplate();
+
+        return this;
     }
 
     getTemplate() {
