@@ -1,0 +1,8 @@
+<div class="card mb-3" style="width: 60rem;">
+    <img src="{{url}}" class="card-img-top max-height-200" alt="{{title}}">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">{{explanation}}</p>
+      <a href="{{hdurl}}" class="btn btn-primary">Go to HD version</a>
+    </div>
+</div>
