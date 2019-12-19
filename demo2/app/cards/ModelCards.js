@@ -1,4 +1,4 @@
-export class ModelNews {
+export class ModelCards {
 
     constructor() {
         // this.urlBase = 'https://yevhverb.github.io/home-tasks/15/animals_en.json';

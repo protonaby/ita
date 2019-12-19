@@ -1,3 +1,3 @@
-import { ControllerNews } from './news/ControllerNews.js';
+import { ControllerCards } from './cards/ControllerCards.js';
 
-const news = new ControllerNews().getPets();
+const cards = new ControllerCards().getPets();

@@ -1,4 +1,4 @@
-export class TemplateNews {
+export class TemplateCards {
     getPetTemplate(pet) {
         return `<div class="ui card">
             <div class="image">
