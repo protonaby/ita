@@ -1,0 +1,6 @@
+.crop {
+    /*background-position: center center !important;*/
+    /*background-repeat: no-repeat !important;*/
+    max-height: 200px;
+    overflow: hidden;
+}

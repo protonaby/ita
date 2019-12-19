@@ -7,10 +7,7 @@ export class ViewCards {
     }
 
     renderPets(pets) {
-        let petStr = '';
-        pets.forEach(pet => {
-            petStr += this.preparePetsArticle(pet);
-        });
+        let petStr = pets.map(pet =>{ return this.templater.getPetTemplate(pet);}).join('');
         this.domCards.innerHTML = petStr;
     }
 
