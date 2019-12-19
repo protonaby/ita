@@ -36,7 +36,7 @@
     "breed": "Siberian",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://web-zoopark.ru/wp-content/uploads/2018/06/1-717.jpg"
+    "image": "https://www.felineliving.net/wp-content/uploads/2018/02/siberian-cat-e1522099195498.jpeg"
   },
   {
     "id": 604,
@@ -49,7 +49,7 @@
     "breed": "Scottish",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://www.purina.com.au/-/media/Project/Purina/Main/Breeds/Cat/Mobile/Cat_Scottish-Fold_Mobile.jpg"
+    "image": "https://cf.ltkcdn.net/cats/images/std/243170-699x450-scottish-fold-cat.jpg"
   },
   {
     "id": 605,
@@ -62,7 +62,7 @@
     "breed": "Siberian",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://web-zoopark.ru/wp-content/uploads/2018/06/1-717.jpg"
+    "image": "http://matryoshka.top/sites/default/files/styles/jssor_600x422_scale_crop/public/jssor_slider/jami6376mini.jpg"
   },
   {
     "id": 606,
@@ -71,11 +71,11 @@
     "gender": "Female",
     "weight": 0.6,
     "birthDate": 1559779200,
-    "color": "Grey",
+    "color": "White",
     "breed": "Scottish",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://www.purina.com.au/-/media/Project/Purina/Main/Breeds/Cat/Mobile/Cat_Scottish-Fold_Mobile.jpg"
+    "image": "https://i.pinimg.com/originals/7a/cb/aa/7acbaa66f780c00e57f67f4e08a7831d.jpg"
   },
   {
     "id": 607,
@@ -88,7 +88,7 @@
     "breed": "Siberian",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://www.purina.com/sites/g/files/auxxlc196/files/AmericanBobtail_body_6.jpg"
+    "image": "https://www.thehappycatsite.com/wp-content/uploads/2017/07/The-Siberian-Cat-HC-long.jpg"
   },
   {
     "id": 608,
@@ -101,7 +101,7 @@
     "breed": "Scottish",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://www.purina.com.au/-/media/Project/Purina/Main/Breeds/Cat/Mobile/Cat_Scottish-Fold_Mobile.jpg"
+    "image": "https://wereallaboutpets.com/wp-content/uploads/2019/02/scottish-fold-1.jpg"
   },
   {
     "id": 609,
@@ -114,7 +114,7 @@
     "breed": "Siberian",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://web-zoopark.ru/wp-content/uploads/2018/06/1-717.jpg"
+    "image": "https://cs2.livemaster.ru/storage/17/20/3701bd71889979a16985d215a8xn--fabric-red-siberian-cat-in-the-style-of-teddy-still-music.jpg"
   },
   {
     "id": 610,
@@ -127,7 +127,7 @@
     "breed": "Siberian",
     "is_sterile": false,
     "hair": "Short",
-    "image": "https://www.purina.com/sites/g/files/auxxlc196/files/AmericanBobtail_body_6.jpg"
+    "image": "https://www.pets4homes.co.uk/images/articles/5583/large/10-things-you-need-to-know-about-the-siberian-cat-before-you-buy-one-5d7762de354fd.jpg"
   },
   {
     "id": 611,
@@ -137,7 +137,7 @@
     "weight": 0.5,
     "birthDate": 1546300800,
     "color": "Black",
-    "breed": "Shepperd",
+    "breed": "Shepherd",
     "hair": "Short",
     "is_sterile": false,
     "image": "https://ruinformer.com/uploads/_pages/64172/6c39c4d426185d9c6d6816c9eb0d9238.jpg"
@@ -163,10 +163,10 @@
     "weight": 0.2,
     "birthDate": 1549065600,
     "color": "Black",
-    "breed": "Shepperd",
+    "breed": "Shepherd",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://ruinformer.com/uploads/_pages/64172/6c39c4d426185d9c6d6816c9eb0d9238.jpg"
+    "image": "https://www.thesprucepets.com/thmb/CunViOJ2_TxPcQ594mK4QbYiCJM=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-977898246-1942d4364fa64bd2ba792a86f4f24715.jpg"
   },
   {
     "id": 614,
@@ -179,7 +179,7 @@
     "breed": "Labrador",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://i.pinimg.com/originals/99/f9/ed/99f9ede31328c8484e9e252d08811535.jpg"
+    "image": "https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/80a/750_400_1/80a1b45432e6fa072607eb2ebf0407d2.jpg"
   },
   {
     "id": 615,
@@ -192,7 +192,7 @@
     "breed": "Labrador",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://i.pinimg.com/originals/99/f9/ed/99f9ede31328c8484e9e252d08811535.jpg"
+    "image": "https://doggy-boom.ru/images/labrador-12.jpg"
   },
   {
     "id": 616,
@@ -205,7 +205,7 @@
     "breed": "Labrador",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://i.pinimg.com/originals/99/f9/ed/99f9ede31328c8484e9e252d08811535.jpg"
+    "image": "https://kor.ill.in.ua/m/610x385/1559925.jpg"
   },
   {
     "id": 617,
@@ -218,7 +218,7 @@
     "breed": "Labrador",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://i.pinimg.com/originals/99/f9/ed/99f9ede31328c8484e9e252d08811535.jpg"
+    "image": "https://24smi.org/public/media/2017/8/7/01_aESIAwc.jpg"
   },
   {
     "id": 618,
@@ -228,10 +228,10 @@
     "weight": 0.7,
     "birthDate": 1562457600,
     "color": "Black",
-    "breed": "Shepperd",
+    "breed": "Shepherd",
     "hair": "Short",
     "is_sterile": false,
-    "image": "https://ruinformer.com/uploads/_pages/64172/6c39c4d426185d9c6d6816c9eb0d9238.jpg"
+    "image": "https://i.pinimg.com/originals/2b/54/82/2b5482ecc0037126afa4cd5cc50a97dd.jpg"
   },
   {
     "id": 619,
@@ -257,7 +257,7 @@
     "breed": "Labrador",
     "hair": "long",
     "is_sterile": false,
-    "image": "https://i.pinimg.com/originals/99/f9/ed/99f9ede31328c8484e9e252d08811535.jpg"
+    "image": "https://img5.goodfon.ru/wallpaper/nbig/f/b7/sobaka-shchenok-retriver-labrador-poza-stoika-priroda-vzglia.jpg"
   },
   {
     "id": 621,
@@ -309,7 +309,7 @@
     "type": "Singing",
     "breed": "Parrot",
     "activity": "Night",
-    "image": "https://imgc.allpostersimages.com/img/print/u-g-F8QHOI0.jpg"
+    "image": "https://thewebcopywriters.com/wp-content/uploads/2019/08/parrot-good.jpg"
   },
   {
     "id": 625,
@@ -335,7 +335,7 @@
     "type": "Singing",
     "breed": "Parrot",
     "activity": "Day",
-    "image": "https://imgc.allpostersimages.com/img/print/u-g-F8QHOI0.jpg"
+    "image": "https://dictionary.cambridge.org/ru/images/thumb/parrot_noun_002_26580.jpg"
   },
   {
     "id": 627,
@@ -361,7 +361,7 @@
     "type": "Singing",
     "breed": "Parrot",
     "activity": "Day",
-    "image": "https://imgc.allpostersimages.com/img/print/u-g-F8QHOI0.jpg"
+    "image": "https://i.pinimg.com/originals/69/e2/e9/69e2e9cd082c665dd0dff0fd98f79503.jpg"
   },
   {
     "id": 629,
@@ -387,7 +387,7 @@
     "type": "Singing",
     "breed": "Parrot",
     "activity": "Night",
-    "image": "https://imgc.allpostersimages.com/img/print/u-g-F8QHOI0.jpg"
+    "image": "https://cdn0.wideopenpets.com/wp-content/uploads/2015/12/budgie-955284_1280-770x405.jpg"
   },
   {
     "id": 631,
@@ -443,7 +443,7 @@
     "water_type": "Brackish",
     "temper": "Predator",
     "maxSize": "3",
-    "image": "https://absolutelyfish.com/wp-content/uploads/2018/12/Miniatus-Grouper-300x200.jpg"
+    "image": "https://cdn10.bigcommerce.com/s-xqons/products/2376/images/4347/Miniatus_Grouper_-_Cephalopholis_miniata__82006.1492650117.500.750.jpg"
   },
   {
     "id": 635,
@@ -499,7 +499,7 @@
     "water_type": "Brackish",
     "temper": "Predator",
     "maxSize": "3",
-    "image": "https://absolutelyfish.com/wp-content/uploads/2018/12/Miniatus-Grouper-300x200.jpg"
+    "image": "https://cdn10.bigcommerce.com/s-xqons/products/2376/images/4347/Miniatus_Grouper_-_Cephalopholis_miniata__82006.1492650117.500.750.jpg"
   },
   {
     "id": 639,

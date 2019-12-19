@@ -15,9 +15,15 @@ export class TemplateNews {
             </div>
             <div class="extra content">
                 <a>
-                <i class="user icon"></i>
+                <i class="dollar sign icon"></i>
                   Price: $${pet.price}
                 </a>
+            </div>
+            <div class="extra content">
+              <div class="ui two buttons">
+                <div class="ui basic green button">Add to basket</div>
+                <div class="ui basic blue button">Details</div>
+              </div>
             </div>
         </div>`
     }
