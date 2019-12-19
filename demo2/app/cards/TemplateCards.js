@@ -1,7 +1,7 @@
 export class TemplateCards {
     getPetTemplate(pet) {
         return `<div class="ui card">
-            <div class="image">
+            <div class="image crop">
               <img src="${pet.image}">
             </div>
             <div class="content">
