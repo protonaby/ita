@@ -1,12 +1,24 @@
 export class TemplateNews {
-    getNewsTemplate(pet) {
-        return `<div class="card mb-3" style="width: 18rem;">
-        <img src="${pet.image}" class="card-img-top" alt="${pet.species}">
-        <div class="card-body">
-            <h5 class="card-title">${pet.breed}</h5>
-            <p class="card-text">${pet.gender}</p>
-            <p class="card-text">${pet.price}</p>
-        </div>
-    </div>`;
+    getPetTemplate(pet) {
+        return `<div class="ui card">
+            <div class="image">
+              <img src="${pet.image}">
+            </div>
+            <div class="content">
+                <a class="header">${pet.breed}</a>
+                <div class="meta">
+                  <span class="date">${pet.species} ${pet.gender}</span>
+                </div>
+                <div class="description">
+                  Age: 1 year
+                </div>
+            </div>
+            <div class="extra content">
+                <a>
+                <i class="user icon"></i>
+                  Price: $${pet.price}
+                </a>
+            </div>
+        </div>`
     }
 }

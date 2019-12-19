@@ -3,7 +3,6 @@ import { TemplateNews } from './TemplateNews.js';
 export class ViewNews {
     constructor() {
         this.domNews = document.querySelector('.news');
-        this.btnSearch = document.querySelector('.btn__search');
         this.templater = new TemplateNews();
     }
 
@@ -16,6 +15,6 @@ export class ViewNews {
     }
 
     preparePetsArticle(article) {
-        return this.templater.getNewsTemplate(article);
+        return this.templater.getPetTemplate(article);
     }
 }
