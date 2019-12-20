@@ -1,5 +1,5 @@
 export class TemplateCards {
-    getPetTemplate(pet) {
+    static getPetTemplate(pet) {
         return `<div class="ui card">
             <div class="image crop">
               <img src="${pet.image}">
@@ -10,7 +10,7 @@ export class TemplateCards {
                   <span class="date">${pet.species} ${pet.gender}</span>
                 </div>
                 <div class="description">
-                  Age: 1 year
+                  Age: ${pet.age}
                 </div>
             </div>
             <div class="extra content">
