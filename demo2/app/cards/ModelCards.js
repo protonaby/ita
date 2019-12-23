@@ -20,6 +20,14 @@ export class ModelCards {
         return this.pets.slice(start, start + count);
     }
 
+    getPetsByCountAndSearch(search, start = 0, count = 10) {
+        return this.pets.filter(p =>
+            p.species.toLowerCase().includes(search.toLowerCase())
+            || p.breed.toLowerCase().includes(search.toLowerCase())
+            || p.gender.toLowerCase().includes(search.toLowerCase()))
+            .slice(start, start + count);
+    }
+
     formatAge(birthdayDate) {
         return ((Date.now() - birthdayDate) / 1000 / 60 / 60 / 24 / 365).toFixed(1) + ' years';
     }

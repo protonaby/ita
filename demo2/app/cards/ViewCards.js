@@ -21,12 +21,14 @@ export class ViewCards {
         this.domNav.forEach(e => e.innerHTML = TemplateCards.getNavigationButtonsTemplate(maxPage));
     }
 
-    addPrevNextPageListeners(prevFunc, nextFunc) {
+    addListeners(prevFunc, nextFunc, searchFunc) {
         this.btnPrev = document.querySelectorAll('.btn_prev');
         this.btnNext = document.querySelectorAll('.btn_next');
         this.currentPage = document.querySelectorAll('.currentPage');
+        this.searchInput = document.querySelector('.searchInput');
 
         this.btnPrev.forEach(e => e.addEventListener('click', prevFunc));
         this.btnNext.forEach(e => e.addEventListener('click', nextFunc));
+        this.searchInput.addEventListener("keyup", searchFunc);
     }
 }

@@ -31,7 +31,7 @@ export class TemplateCards {
                       <div class="item search">
                         <div class="ui transparent inverted icon input">
                           <i class="search icon"></i>
-                          <input placeholder="Search" type="text">
+                          <input class="searchInput" placeholder="Search" type="text">
                         </div>
                       </div>
                     </div>

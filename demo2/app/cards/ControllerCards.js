@@ -13,7 +13,7 @@ export class ControllerCards {
         this.model.getPets()
             .then(() => {
                 this.maxPage = Math.ceil(this.model.totalSize / this.pageSize);
-                this.getPetsByCount(this.page, this.pageSize = 10);
+                this.getPetsByCount(this.page, this.pageSize);
                 this.view.renderHeader();
                 this.view.renderNavigation(this.maxPage);
                 this.addListeners();
@@ -21,7 +21,9 @@ export class ControllerCards {
     }
 
     addListeners() {
-        this.view.addPrevNextPageListeners(this.handleClickPrevPageBtn.bind(this), this.handleClickNextPageBtn.bind(this));
+        this.view.addListeners(this.handleClickPrevPageBtn.bind(this),
+            this.handleClickNextPageBtn.bind(this),
+            this.handleSearchInputReturnPress.bind(this));
     }
 
     getPetsByCount(start, count) {
@@ -47,6 +49,15 @@ export class ControllerCards {
             if (this.page === this.maxPage - 1)
                 this.view.btnNext.forEach(e => e.classList.add("disabled"));
             this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
+        }
+    }
+
+    handleSearchInputReturnPress(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            let searchQuery = this.view.searchInput.value;
+            this.view.renderPets(this.model.getPetsByCountAndSearch(searchQuery));
+
         }
     }
 }
