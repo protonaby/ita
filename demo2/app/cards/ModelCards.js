@@ -16,16 +16,22 @@ export class ModelCards {
             });
     }
 
-    getPetsByCount(start = 0, count = 10) {
-        return this.pets.slice(start, start + count);
+    getPetsByCount(start = 0, count = 10, search = "") {
+        if (search.length === 0) {
+            this.totalSize = this.pets.length;
+            return this.pets.slice(start, start + count);
+        } else {
+            return this.getPetsByCountAndSearch(search, start, count);
+        }
     }
 
     getPetsByCountAndSearch(search, start = 0, count = 10) {
-        return this.pets.filter(p =>
+        let searchResult = this.pets.filter(p =>
             p.species.toLowerCase().includes(search.toLowerCase())
             || p.breed.toLowerCase().includes(search.toLowerCase())
-            || p.gender.toLowerCase().includes(search.toLowerCase()))
-            .slice(start, start + count);
+            || p.gender.toLowerCase().includes(search.toLowerCase()));
+        this.totalSize = searchResult.length;
+        return searchResult.slice(start, start + count);
     }
 
     formatAge(birthdayDate) {

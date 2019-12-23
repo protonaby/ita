@@ -26,38 +26,48 @@ export class ControllerCards {
             this.handleSearchInputReturnPress.bind(this));
     }
 
-    getPetsByCount(start, count) {
-        this.view.renderPets(this.model.getPetsByCount(start, count));
+    getPetsByCount(start, count, search) {
+        this.view.renderPets(this.model.getPetsByCount(start, count, search));
     }
 
     handleClickPrevPageBtn() {
         if (this.page > 0) {
             this.page--;
-            this.getPetsByCount(this.page * this.pageSize, this.pageSize);
+            this.getPetsByCount(this.page * this.pageSize, this.pageSize, this.view.searchInput.value);
             this.view.btnNext.forEach(e => e.classList.remove("disabled"));
             if (this.page === 0)
                 this.view.btnPrev.forEach(e => e.classList.add("disabled"));
             this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     }
 
     handleClickNextPageBtn() {
         if (this.page < this.maxPage - 1) {
             this.page++;
-            this.getPetsByCount(this.page * this.pageSize, this.pageSize);
+            this.getPetsByCount(this.page * this.pageSize, this.pageSize, this.view.searchInput.value);
             this.view.btnPrev.forEach(e => e.classList.remove("disabled"));
             if (this.page === this.maxPage - 1)
                 this.view.btnNext.forEach(e => e.classList.add("disabled"));
             this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     }
 
     handleSearchInputReturnPress(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            let searchQuery = this.view.searchInput.value;
-            this.view.renderPets(this.model.getPetsByCountAndSearch(searchQuery));
-
+        event.preventDefault();
+        let searchQuery = this.view.searchInput.value;
+        this.page = 0;
+        this.getPetsByCount(this.page, this.pageSize, searchQuery);
+        this.maxPage = Math.ceil(this.model.totalSize / this.pageSize);
+        this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
+        this.view.btnPrev.forEach(e => e.classList.add("disabled"));
+        if (this.maxPage !== 1) {
+            this.view.btnNext.forEach(e => e.classList.remove("disabled"));
+            this.view.btnNext.forEach(e => e.classList.add("enabled"));
+        } else {
+            this.view.btnNext.forEach(e => e.classList.remove("enabled"));
+            this.view.btnNext.forEach(e => e.classList.add("disabled"));
         }
     }
 }
