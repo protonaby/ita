@@ -5,25 +5,27 @@ export class ControllerCards {
     constructor() {
         this.model = new ModelCards();
         this.view = new ViewCards();
-        this.page = 0;
+        this.currentPage = 0;
         this.pageSize = 10;
+        this.totalPages = 0;
     }
 
     loadPage() {
-        this.model.getPets()
+        this.model.loadPets()
             .then(() => {
-                this.maxPage = Math.ceil(this.model.totalSize / this.pageSize);
-                this.getPetsByCount(this.page, this.pageSize);
+                this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
+                this.getPetsByCount(this.currentPage, this.pageSize);
                 this.view.renderHeader();
-                this.view.renderNavigation(this.maxPage);
+                this.view.renderNavigation(this.totalPages);
                 this.addListeners();
             });
     }
 
     addListeners() {
-        this.view.addListeners(this.handleClickPrevPageBtn.bind(this),
+        this.view.addListeners(
+            this.handleClickPrevPageBtn.bind(this),
             this.handleClickNextPageBtn.bind(this),
-            this.handleSearchInputReturnPress.bind(this));
+            this.handleKeyUpInSearchInput.bind(this));
     }
 
     getPetsByCount(start, count, search) {
@@ -31,43 +33,27 @@ export class ControllerCards {
     }
 
     handleClickPrevPageBtn() {
-        if (this.page > 0) {
-            this.page--;
-            this.getPetsByCount(this.page * this.pageSize, this.pageSize, this.view.searchInput.value);
-            this.view.btnNext.forEach(e => e.classList.remove("disabled"));
-            if (this.page === 0)
-                this.view.btnPrev.forEach(e => e.classList.add("disabled"));
-            this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+        if (this.currentPage < 1) return;
+        this.currentPage--;
+        this.updatePets();
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     handleClickNextPageBtn() {
-        if (this.page < this.maxPage - 1) {
-            this.page++;
-            this.getPetsByCount(this.page * this.pageSize, this.pageSize, this.view.searchInput.value);
-            this.view.btnPrev.forEach(e => e.classList.remove("disabled"));
-            if (this.page === this.maxPage - 1)
-                this.view.btnNext.forEach(e => e.classList.add("disabled"));
-            this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+        if (this.currentPage > this.totalPages - 2) return;
+        this.currentPage++;
+        this.updatePets();
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    handleSearchInputReturnPress(event) {
-        event.preventDefault();
-        let searchQuery = this.view.searchInput.value;
-        this.page = 0;
-        this.getPetsByCount(this.page, this.pageSize, searchQuery);
-        this.maxPage = Math.ceil(this.model.totalSize / this.pageSize);
-        this.view.currentPage.forEach(e => e.innerHTML = `${this.page + 1} of ${this.maxPage}`);
-        this.view.btnPrev.forEach(e => e.classList.add("disabled"));
-        if (this.maxPage !== 1) {
-            this.view.btnNext.forEach(e => e.classList.remove("disabled"));
-            this.view.btnNext.forEach(e => e.classList.add("enabled"));
-        } else {
-            this.view.btnNext.forEach(e => e.classList.remove("enabled"));
-            this.view.btnNext.forEach(e => e.classList.add("disabled"));
-        }
+    handleKeyUpInSearchInput() {
+        this.currentPage = 0;
+        this.updatePets();
+    }
+
+    updatePets() {
+        this.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.view.search);
+        this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
+        this.view.updatePaginator(this.currentPage, this.totalPages);
     }
 }

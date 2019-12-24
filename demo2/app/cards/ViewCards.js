@@ -24,11 +24,35 @@ export class ViewCards {
     addListeners(prevFunc, nextFunc, searchFunc) {
         this.btnPrev = document.querySelectorAll('.btn_prev');
         this.btnNext = document.querySelectorAll('.btn_next');
-        this.currentPage = document.querySelectorAll('.currentPage');
-        this.searchInput = document.querySelector('.searchInput');
+        this.divCurrentPage = document.querySelectorAll('.currentPage');
+        this.inputSearch = document.querySelector('.searchInput');
 
         this.btnPrev.forEach(e => e.addEventListener('click', prevFunc));
         this.btnNext.forEach(e => e.addEventListener('click', nextFunc));
-        this.searchInput.addEventListener("keyup", searchFunc);
+        this.inputSearch.addEventListener("keyup", searchFunc);
+    }
+
+    get search() {
+        return document.querySelector('.searchInput').value;
+    }
+
+    updatePaginator(currPage, totalPages) {
+        this.setPrevEnabled(currPage > 0);
+        this.setNextEnabled(currPage < totalPages - 1);
+        this.setCurrentPage(currPage, totalPages);
+    }
+
+    setNextEnabled(enabled = true) {
+        enabled ? this.btnNext.forEach(e => e.classList.remove("disabled"))
+            : this.btnNext.forEach(e => e.classList.add("disabled"));
+    }
+
+    setPrevEnabled(enabled = true) {
+        enabled ? this.btnPrev.forEach(e => e.classList.remove("disabled"))
+            : this.btnPrev.forEach(e => e.classList.add("disabled"));
+    }
+
+    setCurrentPage(page, maxPage) {
+        this.divCurrentPage.forEach(e => e.innerHTML = `${page + 1} of ${maxPage}`);
     }
 }
