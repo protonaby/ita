@@ -10,6 +10,7 @@ export class ModelCards {
             .then(res => res.json())
             .then(res => {
                 res.forEach(pet => pet.age = this.formatAge(pet.birth_date));
+                res = res.sort(() => Math.random() - 0.5);
                 this.pets = res;
                 this.totalPets = this.pets.length;
                 return res;
