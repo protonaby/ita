@@ -11,6 +11,7 @@ export class ViewCards {
         this.domCards.innerHTML = pets.map(pet => {
             return TemplateCards.getPetTemplate(pet);
         }).join('');
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     renderHeader() {
@@ -22,13 +23,12 @@ export class ViewCards {
     }
 
     addListeners(prevFunc, nextFunc, searchFunc) {
-        this.btnPrev = document.querySelectorAll('.btn_prev');
-        this.btnNext = document.querySelectorAll('.btn_next');
-        this.divCurrentPage = document.querySelectorAll('.currentPage');
+        this.btnsPrev = document.querySelectorAll('.btn_prev');
+        this.btnsNext = document.querySelectorAll('.btn_next');
         this.inputSearch = document.querySelector('.searchInput');
 
-        this.btnPrev.forEach(e => e.addEventListener('click', prevFunc));
-        this.btnNext.forEach(e => e.addEventListener('click', nextFunc));
+        this.btnsPrev.forEach(e => e.addEventListener('click', prevFunc));
+        this.btnsNext.forEach(e => e.addEventListener('click', nextFunc));
         this.inputSearch.addEventListener("keyup", searchFunc);
     }
 
@@ -43,16 +43,15 @@ export class ViewCards {
     }
 
     setNextEnabled(enabled = true) {
-        enabled ? this.btnNext.forEach(e => e.classList.remove("disabled"))
-            : this.btnNext.forEach(e => e.classList.add("disabled"));
+        this.btnsNext.forEach(e => e.classList.toggle("disabled", !enabled));
     }
 
     setPrevEnabled(enabled = true) {
-        enabled ? this.btnPrev.forEach(e => e.classList.remove("disabled"))
-            : this.btnPrev.forEach(e => e.classList.add("disabled"));
+        this.btnsPrev.forEach(e => e.classList.toggle("disabled", !enabled));
     }
 
     setCurrentPage(page, maxPage) {
-        this.divCurrentPage.forEach(e => e.innerHTML = `${page + 1} of ${maxPage}`);
+        this.divsCurrentPage = document.querySelectorAll('.currentPage');
+        this.divsCurrentPage.forEach(e => e.innerHTML = `${page + 1} of ${maxPage}`);
     }
 }

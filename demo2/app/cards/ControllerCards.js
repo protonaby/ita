@@ -19,6 +19,7 @@ export class ControllerCards {
                 this.view.renderNavigation(this.totalPages);
                 this.addListeners();
             });
+        return this;
     }
 
     addListeners() {
@@ -36,14 +37,12 @@ export class ControllerCards {
         if (this.currentPage < 1) return;
         this.currentPage--;
         this.updatePets();
-        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     handleClickNextPageBtn() {
         if (this.currentPage > this.totalPages - 2) return;
         this.currentPage++;
         this.updatePets();
-        window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
     handleKeyUpInSearchInput() {
