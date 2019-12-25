@@ -2,12 +2,15 @@ import {ModelCards} from './ModelCards.js';
 import {ViewCards} from './ViewCards.js';
 
 export class ControllerCards {
-    constructor() {
+    constructor({subscribe}) {
         this.model = new ModelCards();
         this.view = new ViewCards();
+        this.subscribe = subscribe;
+        this.subscribe('new-search', this.getPetsBySearch.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
         this.totalPages = 0;
+        this.search = "";
     }
 
     loadPage() {
@@ -15,7 +18,6 @@ export class ControllerCards {
             .then(() => {
                 this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
                 this.getPetsByCount(this.currentPage, this.pageSize);
-                this.view.renderHeader();
                 this.view.renderNavigation(this.totalPages);
                 this.addListeners();
             });
@@ -25,8 +27,7 @@ export class ControllerCards {
     addListeners() {
         this.view.addListeners(
             this.handleClickPrevPageBtn.bind(this),
-            this.handleClickNextPageBtn.bind(this),
-            this.handleKeyUpInSearchInput.bind(this));
+            this.handleClickNextPageBtn.bind(this));
     }
 
     getPetsByCount(start, count, search) {
@@ -45,13 +46,14 @@ export class ControllerCards {
         this.updatePets();
     }
 
-    handleKeyUpInSearchInput() {
+    getPetsBySearch(search) {
         this.currentPage = 0;
+        this.search = search;
         this.updatePets();
     }
 
     updatePets() {
-        this.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.view.search);
+        this.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
         this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
         this.view.updatePaginator(this.currentPage, this.totalPages);
     }

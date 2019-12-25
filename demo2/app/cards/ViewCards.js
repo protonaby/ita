@@ -3,7 +3,6 @@ import {TemplateCards} from './TemplateCards.js';
 export class ViewCards {
     constructor() {
         this.domCards = document.querySelector('.cards');
-        this.domHeader = document.querySelector('header');
         this.domNav = document.querySelectorAll('.navigation');
     }
 
@@ -14,10 +13,6 @@ export class ViewCards {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    renderHeader() {
-        this.domHeader.innerHTML = TemplateCards.getHeaderTemplate();
-    }
-
     renderNavigation(maxPage) {
         this.domNav.forEach(e => e.innerHTML = TemplateCards.getNavigationButtonsTemplate(maxPage));
     }
@@ -25,15 +20,9 @@ export class ViewCards {
     addListeners(prevFunc, nextFunc, searchFunc) {
         this.btnsPrev = document.querySelectorAll('.btn_prev');
         this.btnsNext = document.querySelectorAll('.btn_next');
-        this.inputSearch = document.querySelector('.searchInput');
 
         this.btnsPrev.forEach(e => e.addEventListener('click', prevFunc));
         this.btnsNext.forEach(e => e.addEventListener('click', nextFunc));
-        this.inputSearch.addEventListener("keyup", searchFunc);
-    }
-
-    get search() {
-        return document.querySelector('.searchInput').value;
     }
 
     updatePaginator(currPage, totalPages) {
