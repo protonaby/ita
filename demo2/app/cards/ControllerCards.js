@@ -2,59 +2,52 @@ import {ModelCards} from './ModelCards.js';
 import {ViewCards} from './ViewCards.js';
 
 export class ControllerCards {
-    constructor({subscribe}) {
+
+    constructor({subscribe, notify}) {
         this.model = new ModelCards();
         this.view = new ViewCards();
         this.subscribe = subscribe;
-        this.subscribe('new-search', this.getPetsBySearch.bind(this));
+        this.notify = notify;
+        this.subscribe('new-search', this.loadCardsBySearch.bind(this));
+        this.subscribe('click-prev', this.loadPrevPage.bind(this));
+        this.subscribe('click-next', this.loadNextPage.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
-        this.totalPages = 0;
         this.search = "";
     }
 
-    loadPage() {
-        this.model.loadPets()
-            .then(() => {
-                this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
-                this.getPetsByCount(this.currentPage, this.pageSize);
-                this.view.renderNavigation(this.totalPages);
-                this.addListeners();
-            });
+    get totalPages() {
+        return Math.ceil(this.model.totalPets / this.pageSize);
+    }
+
+    loadCards() {
+        this.model.loadPets().then(() => {
+            this.renderPets();
+        });
         return this;
     }
 
-    addListeners() {
-        this.view.addListeners(
-            this.handleClickPrevPageBtn.bind(this),
-            this.handleClickNextPageBtn.bind(this));
-    }
-
-    getPetsByCount(start, count, search) {
-        this.view.renderPets(this.model.getPetsByCount(start, count, search));
-    }
-
-    handleClickPrevPageBtn() {
-        if (this.currentPage < 1) return;
-        this.currentPage--;
-        this.updatePets();
-    }
-
-    handleClickNextPageBtn() {
+    loadNextPage() {
         if (this.currentPage > this.totalPages - 2) return;
         this.currentPage++;
-        this.updatePets();
+        this.renderPets();
     }
 
-    getPetsBySearch(search) {
+    loadPrevPage() {
+        if (this.currentPage < 1) return;
+        this.currentPage--;
+        this.renderPets();
+    }
+
+    loadCardsBySearch(search) {
         this.currentPage = 0;
         this.search = search;
-        this.updatePets();
+        this.renderPets();
     }
 
-    updatePets() {
-        this.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
-        this.totalPages = Math.ceil(this.model.totalPets / this.pageSize);
-        this.view.updatePaginator(this.currentPage, this.totalPages);
+    renderPets() {
+        const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
+        this.view.renderPets(pets);
+        this.notify('cards-loaded', {currentPage: this.currentPage, totalPages: this.totalPages});
     }
 }
