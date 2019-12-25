@@ -31,7 +31,15 @@ export class ModelCards {
     }
 
     formatAge(birthdayDate) {
-        return ((Date.now() - birthdayDate) / 1000 / 60 / 60 / 24 / 365).toFixed(1) + ' years';
+        let age = moment.duration(moment(new Date()).diff(moment(birthdayDate)));
+        let s = '';
+        if (age.years() > 0)
+            s += age.years() + ' years ';
+        if (age.months() > 0)
+            s += age.months() + ' months ';
+        if (age.days() > 0)
+            s += age.days() + ' days';
+        return s;
     }
 
 }
