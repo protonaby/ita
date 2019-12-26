@@ -11,4 +11,11 @@ export class ViewCards {
         }).join('');
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
+
+    addListener(detFunc) {
+        this.btnsDetails = document.querySelectorAll('.dtlsBtn');
+        this.btnsDetails.forEach(btn => btn.addEventListener('click', () => {
+            detFunc(Number(btn.dataset.id));
+        }));
+    }
 }

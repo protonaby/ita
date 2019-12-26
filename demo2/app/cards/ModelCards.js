@@ -30,6 +30,10 @@ export class ModelCards {
         }
     }
 
+    getPet(id) {
+        return this.pets.find(p => p.id === id);
+    }
+
     formatAge(birthdayDate) {
         let age = moment.duration(moment(new Date()).diff(moment(birthdayDate)));
         let s = '';

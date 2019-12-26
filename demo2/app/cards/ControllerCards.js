@@ -48,6 +48,15 @@ export class ControllerCards {
     renderPets() {
         const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
         this.view.renderPets(pets);
+        this.addDetailsListener();
         this.notify('cards-loaded', {currentPage: this.currentPage, totalPages: this.totalPages});
+    }
+
+    addDetailsListener(){
+        this.view.addListener(this.handleClickDetails.bind(this));
+    }
+
+    handleClickDetails(id){
+        this.notify('click-details', this.model.getPet(id));
     }
 }

@@ -30,3 +30,18 @@
     display: inline;
     margin-right: 3px;
 }
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.ui.modal {
+    width: auto;
+}
+
+
+.ui.modal img {
+    height: 240px;
+    object-fit: cover;
+    overflow: hidden;
+}
