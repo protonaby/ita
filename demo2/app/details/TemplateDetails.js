@@ -7,19 +7,38 @@ export class TemplateDetails {
                         ${pet.breed} ${pet.species}
                     </div>
                     <div class="image content">
-                        <div class="ui medium image">
+                        <div class="ui medium image detImage">
                              <img src="${pet.image}">
                         </div>
                         <div class="description capitalize">
-                            <div>Species: ${pet.species}</div>
-                            <div>Breed: ${pet.breed}</div>
-                            <div>Gender: ${pet.gender}</div>
-                            <div>Weight: ${pet.weight} kg</div>
-                            <div>Age: ${pet.age}</div>
-                            <div>Color: ${pet.color}</div>
-                            <div>Sterile: ${pet.is_sterile ? 'yes' : 'no'}</div>
-                            <div>Hair: ${pet.hair}</div>
-                            <div>Price: $${pet.price}</div>
+                            <div class="ui grid">
+                                <div class="four wide column props">
+                                    <div>Species: </div>
+                                    <div>Breed: </div>
+                                    <div>Gender: </div>
+                                    <div>Weight: </div>
+                                    <div>Age: </div>
+                                    <div>Color: </div>
+                                    <div>Sterile: </div>
+                                    ${pet.hair ? '<div>Hair: </div>' : ''}
+                                    ${pet.type ? '<div>Type: </div>' : ''}
+                                    ${pet.activity ? '<div>Activity: </div>' : ''}
+                                    <div>Price: </div>
+                                </div>
+                                <div class="right aligned twelve wide column">
+                                    <div>${pet.species}</div>
+                                    <div>${pet.breed}</div>
+                                    <div>${pet.gender}</div>
+                                    <div>${pet.weight} kg</div>
+                                    <div>${pet.age}</div>
+                                    <div>${pet.color}</div>
+                                    <div>${pet.is_sterile ? 'yes' : 'no'}</div>
+                                    ${pet.hair ? `<div>${pet.hair}</div>` : ''}
+                                    ${pet.type ? `<div>${pet.type}</div>` : ''}
+                                    ${pet.activity ? `<div>${pet.activity}</div>` : ''}
+                                    <div>$${pet.price}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="actions">

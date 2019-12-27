@@ -45,3 +45,15 @@
     object-fit: cover;
     overflow: hidden;
 }
+
+.detImage {
+    width:  auto !important;
+}
+
+.props {
+    font-weight: 700;
+}
+
+.description {
+    padding-right: 10px !important;
+}
