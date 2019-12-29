@@ -19,7 +19,7 @@ export class TemplateCards {
                     </div>
                     <div class="extra content">
                       <div class="ui two buttons">
-                        <div class="ui basic green button">Add to cart</div>
+                        <div class="ui basic green button buyPetBtn" data-id="${pet.id}">Add to cart</div>
                         <div class="ui basic blue button dtlsBtn" data-id="${pet.id}">Details</div>
                       </div>
                     </div>

@@ -2,9 +2,12 @@ import {ViewHeader} from './ViewHeader.js';
 
 export class ControllerHeader {
 
-    constructor({notify}) {
+    constructor({subscribe, notify}) {
         this.view = new ViewHeader(this.keyUpInSearchInput.bind(this), this.clickFilter.bind(this));
         this.notify = notify;
+        this.subscribe = subscribe;
+        this.subscribe('click-buy-pet', this.handleBuyPet.bind(this));
+        this.subscribe('click-cancel-buy-pet', this.handleCancelBuyPet.bind(this));
     }
 
     keyUpInSearchInput() {
@@ -13,5 +16,13 @@ export class ControllerHeader {
 
     clickFilter(filter) {
         this.notify('click-filter', filter);
+    }
+
+    handleBuyPet(pet) {
+        this.view.addItemToCart();
+    }
+
+    handleCancelBuyPet(pet) {
+        this.view.removeItemFromCart();
     }
 }

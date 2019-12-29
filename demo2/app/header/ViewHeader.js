@@ -12,6 +12,7 @@ export class ViewHeader {
         this.domHeader.innerHTML = TemplateHeader.getHeaderTemplate();
         this.inputSearch = document.querySelector('.searchInput');
         this.filters = document.querySelectorAll('.filter');
+        this.cart = document.querySelector('.petsInCart');
     }
 
     addListeners(searchFunc, filterFunc) {
@@ -42,5 +43,14 @@ export class ViewHeader {
         this.filters.forEach(e => e.classList.remove("active"));
         if (!e.classList.contains("brand"))
             e.classList.add("active");
+    }
+
+    addItemToCart() {
+        this.cart.innerText = Number(this.cart.innerText) + 1;
+    }
+
+    removeItemFromCart() {
+        this.cart.innerText = Number(this.cart.innerText) - 1;
+
     }
 }

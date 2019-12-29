@@ -12,10 +12,20 @@ export class ViewCards {
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    addListener(detFunc) {
+    addDetailsListener(detFunc) {
         this.btnsDetails = document.querySelectorAll('.dtlsBtn');
         this.btnsDetails.forEach(btn => btn.addEventListener('click', () => {
             detFunc(Number(btn.dataset.id));
         }));
     }
+
+    addBuyPetListener(buyPetFunc) {
+        this.btnsBuyPet = document.querySelectorAll('.buyPetBtn');
+        this.btnsBuyPet.forEach(btn => btn.addEventListener('click', () => {
+            btn.classList.toggle('basic');
+            btn.innerText = btn.innerText === 'Add to cart' ? 'In cart' : 'Add to cart';
+            buyPetFunc(Number(btn.dataset.id));
+        }));
+    }
+
 }

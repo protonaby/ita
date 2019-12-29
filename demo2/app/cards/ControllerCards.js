@@ -49,15 +49,25 @@ export class ControllerCards {
     renderPets() {
         const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
         this.view.renderPets(pets);
-        this.addDetailsListener();
+        this.addListeners();
         this.notify('cards-loaded', {currentPage: this.currentPage, totalPages: this.totalPages});
     }
 
-    addDetailsListener(){
-        this.view.addListener(this.handleClickDetails.bind(this));
+    addListeners() {
+        this.view.addDetailsListener(this.handleClickDetails.bind(this));
+        this.view.addBuyPetListener(this.handleClickBuyPet.bind(this));
     }
 
-    handleClickDetails(id){
+    handleClickDetails(id) {
         this.notify('click-details', this.model.getPet(id));
+    }
+
+    handleClickBuyPet(id) {
+        let pet = this.model.getPet(id);
+        pet.inCart = !pet.inCart;
+        if (pet.inCart) {
+            this.notify('click-buy-pet', pet);
+        } else
+            this.notify('click-cancel-buy-pet', pet);
     }
 }
