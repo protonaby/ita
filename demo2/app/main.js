@@ -1,6 +1,6 @@
 import {Publisher} from './share/Publisher.js';
 import {ControllerCards} from './cards/ControllerCards.js';
-import {ControllerHeader} from './menu/ControllerHeader.js';
+import {ControllerHeader} from './header/ControllerHeader.js';
 import {ControllerPaginator} from './paginator/ControllerPaginator.js';
 import {ControllerDetails} from './details/ControllerDetails.js';
 
