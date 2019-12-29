@@ -11,6 +11,7 @@ export class ControllerCards {
         this.subscribe('new-search', this.loadCardsBySearch.bind(this));
         this.subscribe('click-prev', this.loadPrevPage.bind(this));
         this.subscribe('click-next', this.loadNextPage.bind(this));
+        this.subscribe('click-filter', this.loadCardsBySearch.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
         this.search = "";
