@@ -12,7 +12,7 @@ export class TemplateDetails {
                         </div>
                         <div class="description capitalize">
                             <div class="ui grid">
-                                <div class="four wide column props">
+                                <div class="four wide column bold">
                                     <div>Species: </div>
                                     <div>Breed: </div>
                                     <div>Gender: </div>

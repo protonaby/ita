@@ -1,7 +1,7 @@
 export class TemplateHeader {
 
     static getHeaderTemplate() {
-        return `<div class="ui fixed inverted menu">
+        return `<div class="ui fixed inverted menu flexWrap">
                   <div class="header item menu filter brand" data-filter="">Pet Shop</div>
                   <div class="item filter" data-filter="cat">Cats</div>
                   <div class="item filter" data-filter="dog">Dogs</div>

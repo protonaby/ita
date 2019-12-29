@@ -2,7 +2,7 @@ import {TemplatePaginator} from './TemplatePaginator.js';
 
 export class ViewPaginator {
     constructor(clickNextListener, clickPrevListener) {
-        this.domNav = document.querySelectorAll('.navigation');
+        this.domNav = document.querySelectorAll('.paginator');
         this.renderPaginator();
         this.addListeners(clickNextListener, clickPrevListener);
     }
