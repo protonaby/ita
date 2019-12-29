@@ -11,8 +11,20 @@ export class ControllerDetails {
         this.subscribe('click-details', this.displayDetails.bind(this));
     }
 
-    displayDetails(pet){
+    displayDetails(pet) {
+        this.pet = pet;
         this.view.renderDetails(pet);
+        this.view.addBuyPetListener(this.handleClickBuyPet.bind(this));
+    }
+
+    handleClickBuyPet(id) {
+        this.pet.inCart = !this.pet.inCart;
+        if (this.pet.inCart) {
+            this.notify('click-buy-pet', this.pet);
+        } else {
+            this.notify('click-cancel-buy-pet', this.pet);
+        }
+        this.notify('pet-updated', id);
     }
 
 }

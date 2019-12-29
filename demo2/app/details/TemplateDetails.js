@@ -42,13 +42,18 @@ export class TemplateDetails {
                         </div>
                     </div>
                     <div class="actions">
-                        <div class="ui black deny button">
+                        <div class="ui basic violet deny button closeDtlsBtn">
                             Close
                         </div>
-                        <div class="ui positive right labeled icon button">
+                        ${pet.inCart
+                        ?
+                        `<div class="ui green button dtlsBuyPetBtn" data-id="${pet.id}">
+                          In cart
+                         </div>`
+                        :
+                        `<div class="ui basic green button dtlsBuyPetBtn" data-id="${pet.id}">
                             Add to cart
-                            <i class="checkmark icon"></i>
-                        </div>
+                        </div> `}
                     </div>
                 </div>`;
     }

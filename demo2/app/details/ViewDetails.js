@@ -15,4 +15,14 @@ export class ViewDetails {
         });
     }
 
+    addBuyPetListener(buyPetFunc) {
+        this.btnBuyPet = document.querySelector('.dtlsBuyPetBtn');
+        this.btnBuyPet.addEventListener('click', () => {
+            this.btnBuyPet.classList.toggle('basic');
+            this.btnBuyPet.innerText = this.btnBuyPet.innerText === 'Add to cart' ? 'In cart' : 'Add to cart';
+            buyPetFunc(Number(this.btnBuyPet.dataset.id));
+        });
+    }
+
+
 }

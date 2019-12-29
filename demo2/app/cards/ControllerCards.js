@@ -12,6 +12,7 @@ export class ControllerCards {
         this.subscribe('click-prev', this.loadPrevPage.bind(this));
         this.subscribe('click-next', this.loadNextPage.bind(this));
         this.subscribe('click-filter', this.loadCardsBySearch.bind(this));
+        this.subscribe('pet-updated', this.handlePetUpdated.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
         this.search = "";
@@ -69,5 +70,9 @@ export class ControllerCards {
             this.notify('click-buy-pet', pet);
         } else
             this.notify('click-cancel-buy-pet', pet);
+    }
+
+    handlePetUpdated(id) {
+        this.view.toggleBuyPetBtn(id);
     }
 }

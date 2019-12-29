@@ -28,4 +28,10 @@ export class ViewCards {
         }));
     }
 
+    toggleBuyPetBtn(id) {
+        let btn = document.querySelector(`.buyPetBtn[data-id='${id}']`);
+        btn.classList.toggle('basic');
+        btn.innerText = btn.innerText === 'Add to cart' ? 'In cart' : 'Add to cart';
+    }
+
 }
