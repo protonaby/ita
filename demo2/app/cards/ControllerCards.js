@@ -11,7 +11,7 @@ export class ControllerCards {
         this.subscribe('new-search', this.loadCardsBySearch.bind(this));
         this.subscribe('click-prev', this.loadPrevPage.bind(this));
         this.subscribe('click-next', this.loadNextPage.bind(this));
-        this.subscribe('click-filter', this.loadCardsBySearch.bind(this));
+        this.subscribe('click-category', this.loadCardsBySearch.bind(this));
         this.subscribe('pet-updated', this.handlePetUpdated.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
@@ -64,7 +64,7 @@ export class ControllerCards {
     }
 
     handleClickAddToCart(id) {
-        this.model.togglePetInCart(id);
+        this.handlePetUpdated(id);
         if (this.model.isPetInCart(id)) {
             this.notify('click-buy-pet');
         } else {

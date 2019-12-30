@@ -22,8 +22,6 @@ export class ViewCards {
     addBuyPetListener(buyPetFunc) {
         this.btnsBuyPet = document.querySelectorAll('.buyPetBtn');
         this.btnsBuyPet.forEach(btn => btn.addEventListener('click', () => {
-            btn.classList.toggle('basic');
-            btn.innerText = btn.innerText === 'Add to cart' ? 'In cart' : 'Add to cart';
             buyPetFunc(Number(btn.dataset.id));
         }));
     }

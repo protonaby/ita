@@ -2,28 +2,28 @@ import {TemplateHeader} from './TemplateHeader.js';
 
 export class ViewHeader {
 
-    constructor(keyListener, filterListener) {
+    constructor(keyListener, categoryListener) {
         this.renderMenu();
-        this.addListeners(keyListener, filterListener);
+        this.addListeners(keyListener, categoryListener);
     }
 
     renderMenu() {
         this.domHeader = document.querySelector('header');
         this.domHeader.innerHTML = TemplateHeader.getHeaderTemplate();
         this.inputSearch = document.querySelector('.searchInput');
-        this.filters = document.querySelectorAll('.filter');
+        this.categoryBtns = document.querySelectorAll('.category');
         this.cart = document.querySelector('.petsInCart');
     }
 
-    addListeners(searchFunc, filterFunc) {
+    addListeners(searchFunc, categoryFunc) {
         this.inputSearch.addEventListener('keyup', () => {
-            this.resetFilterBtns();
+            this.resetCategoryBtns();
             searchFunc();
         });
-        this.filters.forEach(e => e.addEventListener('click', () => {
+        this.categoryBtns.forEach(btn => btn.addEventListener('click', () => {
             this.search = "";
-            this.setActiveFilterBtn(e);
-            filterFunc(e.dataset.filter);
+            this.setActiveCategoryBtns(btn);
+            categoryFunc(btn.dataset.category);
         }));
     }
 
@@ -35,12 +35,12 @@ export class ViewHeader {
         return document.querySelector('.searchInput').value = value;
     }
 
-    resetFilterBtns() {
-        this.filters.forEach(e => e.classList.remove("active"));
+    resetCategoryBtns() {
+        this.categoryBtns.forEach(e => e.classList.remove("active"));
     }
 
-    setActiveFilterBtn(e) {
-        this.filters.forEach(e => e.classList.remove("active"));
+    setActiveCategoryBtns(e) {
+        this.categoryBtns.forEach(e => e.classList.remove("active"));
         if (!e.classList.contains("brand"))
             e.classList.add("active");
     }

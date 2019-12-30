@@ -52,7 +52,6 @@ export class ModelCards {
     }
 
     isPetInCart(id) {
-        let pet = this.pets.find(p => p.id === id);
-        return pet.inCart;
+        return this.pets.find(p => p.id === id).inCart;
     }
 }
