@@ -18,11 +18,11 @@ export class ControllerHeader {
         this.notify('click-filter', filter);
     }
 
-    handleBuyPet(pet) {
+    handleBuyPet() {
         this.view.addItemToCart();
     }
 
-    handleCancelBuyPet(pet) {
+    handleCancelBuyPet() {
         this.view.removeItemFromCart();
     }
 }

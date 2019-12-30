@@ -46,4 +46,13 @@ export class ModelCards {
         return s;
     }
 
+    togglePetInCart(id) {
+        let pet = this.pets.find(p => p.id === id);
+        pet.inCart = !pet.inCart;
+    }
+
+    isPetInCart(id) {
+        let pet = this.pets.find(p => p.id === id);
+        return pet.inCart;
+    }
 }

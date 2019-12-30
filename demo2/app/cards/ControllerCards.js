@@ -24,7 +24,7 @@ export class ControllerCards {
 
     loadCards() {
         this.model.loadPets().then(() => {
-            this.renderPets();
+            this.renderCards();
         });
         return this;
     }
@@ -32,22 +32,22 @@ export class ControllerCards {
     loadNextPage() {
         if (this.currentPage > this.totalPages - 2) return;
         this.currentPage++;
-        this.renderPets();
+        this.renderCards();
     }
 
     loadPrevPage() {
         if (this.currentPage < 1) return;
         this.currentPage--;
-        this.renderPets();
+        this.renderCards();
     }
 
     loadCardsBySearch(search) {
         this.currentPage = 0;
         this.search = search;
-        this.renderPets();
+        this.renderCards();
     }
 
-    renderPets() {
+    renderCards() {
         const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search);
         this.view.renderPets(pets);
         this.addListeners();
@@ -56,23 +56,24 @@ export class ControllerCards {
 
     addListeners() {
         this.view.addDetailsListener(this.handleClickDetails.bind(this));
-        this.view.addBuyPetListener(this.handleClickBuyPet.bind(this));
+        this.view.addBuyPetListener(this.handleClickAddToCart.bind(this));
     }
 
     handleClickDetails(id) {
         this.notify('click-details', this.model.getPet(id));
     }
 
-    handleClickBuyPet(id) {
-        let pet = this.model.getPet(id);
-        pet.inCart = !pet.inCart;
-        if (pet.inCart) {
-            this.notify('click-buy-pet', pet);
-        } else
-            this.notify('click-cancel-buy-pet', pet);
+    handleClickAddToCart(id) {
+        this.model.togglePetInCart(id);
+        if (this.model.isPetInCart(id)) {
+            this.notify('click-buy-pet');
+        } else {
+            this.notify('click-cancel-buy-pet');
+        }
     }
 
     handlePetUpdated(id) {
+        this.model.togglePetInCart(id);
         this.view.toggleBuyPetBtn(id);
     }
 }
