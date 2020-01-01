@@ -8,6 +8,7 @@ export class ControllerHeader {
         this.subscribe = subscribe;
         this.subscribe('click-buy-pet', this.handleBuyPet.bind(this));
         this.subscribe('click-cancel-buy-pet', this.handleCancelBuyPet.bind(this));
+        this.loadCartCountFromStorage();
     }
 
     keyUpInSearchInput() {
@@ -28,5 +29,10 @@ export class ControllerHeader {
 
     handleCancelBuyPet() {
         this.view.removeItemFromCart();
+    }
+
+    loadCartCountFromStorage() {
+        let petsInStorage = JSON.parse(sessionStorage.getItem('cart-storage')) || [];
+        this.view.addItemToCart(petsInStorage.length);
     }
 }

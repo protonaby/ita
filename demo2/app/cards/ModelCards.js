@@ -13,8 +13,17 @@ export class ModelCards {
                 res = res.sort(() => Math.random() - 0.5);
                 this.pets = res;
                 this.totalPets = this.pets.length;
+                this.loadDataFromStorage();
                 return res;
             });
+    }
+
+    loadDataFromStorage() {
+        let petsInStorage = JSON.parse(sessionStorage.getItem('cart-storage')) || [];
+        petsInStorage.forEach(p => {
+            let pet = this.getPet(p.id);
+            pet.inCart = true;
+        });
     }
 
     getPetsByCount(start = 0, count = 10, search = "") {

@@ -14,7 +14,7 @@ export class ControllerCart {
     }
 
     handleBuyPet(pet) {
-        this.model.pets.push(pet);
+        this.model.addPet(pet);
     }
 
     handleCancelBuyPet(pet) {

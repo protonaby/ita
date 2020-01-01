@@ -49,8 +49,8 @@ export class ViewHeader {
             e.classList.add("active");
     }
 
-    addItemToCart() {
-        this.cartCount.innerText = Number(this.cartCount.innerText) + 1;
+    addItemToCart(numItems = 1) {
+        this.cartCount.innerText = Number(this.cartCount.innerText) + numItems;
     }
 
     removeItemFromCart() {
