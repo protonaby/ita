@@ -66,9 +66,9 @@ export class ControllerCards {
     handleClickAddToCart(id) {
         this.handlePetUpdated(id);
         if (this.model.isPetInCart(id)) {
-            this.notify('click-buy-pet');
+            this.notify('click-buy-pet', this.model.getPet(id));
         } else {
-            this.notify('click-cancel-buy-pet');
+            this.notify('click-cancel-buy-pet', this.model.getPet(id));
         }
     }
 

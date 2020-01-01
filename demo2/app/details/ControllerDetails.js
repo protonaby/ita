@@ -21,9 +21,9 @@ export class ControllerDetails {
         this.view.toggleBtnBuyPet();
         this.notify('pet-updated', id);
         if (this.pet.inCart) {
-            this.notify('click-buy-pet');
+            this.notify('click-buy-pet', this.pet);
         } else {
-            this.notify('click-cancel-buy-pet');
+            this.notify('click-cancel-buy-pet', this.pet);
         }
     }
 
