@@ -16,7 +16,7 @@ export class TemplateHeader {
                   </div>
                   <div class="item">
                     <span class="petsInCart">0</span>
-                    <i class="big shopping cart icon"></i>
+                    <i class="big shopping cart cartBtn icon"></i>
                   </div>
                   </div>
                 </div>`;

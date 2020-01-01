@@ -2,9 +2,9 @@ import {TemplateHeader} from './TemplateHeader.js';
 
 export class ViewHeader {
 
-    constructor(keyListener, categoryListener) {
+    constructor(keyListener, categoryListener, cartListener) {
         this.renderMenu();
-        this.addListeners(keyListener, categoryListener);
+        this.addListeners(keyListener, categoryListener, cartListener);
     }
 
     renderMenu() {
@@ -12,10 +12,11 @@ export class ViewHeader {
         this.domHeader.innerHTML = TemplateHeader.getHeaderTemplate();
         this.inputSearch = document.querySelector('.searchInput');
         this.categoryBtns = document.querySelectorAll('.category');
-        this.cart = document.querySelector('.petsInCart');
+        this.cartCount = document.querySelector('.petsInCart');
+        this.cartBtn = document.querySelector('.cartBtn');
     }
 
-    addListeners(searchFunc, categoryFunc) {
+    addListeners(searchFunc, categoryFunc, cartFunc) {
         this.inputSearch.addEventListener('keyup', () => {
             this.resetCategoryBtns();
             searchFunc();
@@ -25,6 +26,9 @@ export class ViewHeader {
             this.setActiveCategoryBtns(btn);
             categoryFunc(btn.dataset.category);
         }));
+        this.cartBtn.addEventListener('click', () => {
+            cartFunc();
+        });
     }
 
     get search() {
@@ -46,11 +50,10 @@ export class ViewHeader {
     }
 
     addItemToCart() {
-        this.cart.innerText = Number(this.cart.innerText) + 1;
+        this.cartCount.innerText = Number(this.cartCount.innerText) + 1;
     }
 
     removeItemFromCart() {
-        this.cart.innerText = Number(this.cart.innerText) - 1;
-
+        this.cartCount.innerText = Number(this.cartCount.innerText) - 1;
     }
 }
