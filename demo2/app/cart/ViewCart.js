@@ -17,9 +17,11 @@ export class ViewCart {
     }
 
     renderCart(pets) {
-        this.domCartPanel.innerHTML = pets.map(pet => {
-            return TemplateCart.getCartItemTemplate(pet);
-        }).join('');
+        this.domCartPanel.innerHTML = pets.length > 0
+            ? pets.map(pet => {
+                return TemplateCart.getCartItemTemplate(pet);
+            }).join('')
+            : TemplateCart.getEmptyCartMessageTemplate();
 
     }
 
