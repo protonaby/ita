@@ -22,16 +22,29 @@ export class ControllerCart {
     }
 
     toggleCart() {
-        this.view.renderCart(this.model.pets);
+        this.renderCart();
         this.view.toggleCart();
-        this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
     }
 
     handleClickRemove(id) {
         this.notify('pet-updated', id);
         this.notify('click-cancel-buy-pet', this.model.getPet(id));
         this.model.removePet(id);
+        this.renderCart();
+    }
+
+    handleClickOrder() {
+        this.view.renderOrderForm();
+        this.view.addClickBackBtnListener(this.handleClickBack.bind(this));
+    }
+
+    handleClickBack() {
+        this.renderCart();
+    }
+
+    renderCart(){
         this.view.renderCart(this.model.pets);
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
+        this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
     }
 }

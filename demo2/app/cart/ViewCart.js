@@ -6,6 +6,7 @@ export class ViewCart {
         this.domBody = document.querySelector('body');
         this.domBody.insertAdjacentHTML("afterbegin", TemplateCart.getCartTemplate());
         this.domCartPanel = document.querySelector('.cartPanel');
+        this.domCartHeader = document.querySelector('.cartHeader');
     }
 
     addClickRemoveBtnsListeners(removeFunc) {
@@ -14,6 +15,20 @@ export class ViewCart {
             this.domRmoveBtns.forEach(btn => btn.addEventListener('click', (event) => {
                 removeFunc(Number(event.target.dataset.id));
             }));
+    }
+
+    addClickOrderBtnListener(orderFunc) {
+        this.domOrderBtn = document.querySelector('.orderBtn');
+        this.domOrderBtn.addEventListener('click', () => {
+            orderFunc();
+        })
+    }
+
+    addClickBackBtnListener(backFunc) {
+        this.domOrderBackBtn = document.querySelector('.orderBackBtn');
+        this.domOrderBackBtn.addEventListener('click', () => {
+            backFunc();
+        })
     }
 
     renderCart(pets) {
@@ -28,6 +43,7 @@ export class ViewCart {
             cartHtml += TemplateCart.getTotalCostTemplate(totalCost);
         }
         this.domCartPanel.innerHTML = cartHtml;
+        this.domCartHeader.innerHTML = 'Shopping Cart';
     }
 
     toggleCart() {
@@ -35,4 +51,8 @@ export class ViewCart {
             .sidebar('toggle');
     }
 
+    renderOrderForm() {
+        this.domCartHeader.innerHTML = 'Shopping Cart > Order';
+        this.domCartPanel.innerHTML = TemplateCart.getOrderFormTemplate();
+    }
 }
