@@ -32,6 +32,13 @@ export class ViewCart {
         })
     }
 
+    addClickCloseBtnListener(closeFunc) {
+        this.domOrderCloseBtn = document.querySelector('.closeBtn');
+        this.domOrderCloseBtn.addEventListener('click', () => {
+            closeFunc();
+        })
+    }
+
     renderCart(pets) {
         let cartHtml = '';
         if (!pets.length) {

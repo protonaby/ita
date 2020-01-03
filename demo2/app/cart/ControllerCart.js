@@ -72,7 +72,7 @@ export class ControllerCart {
                 rules: [
                   {
                     type   : 'email',
-                    prompt : 'Please enter a valid E-mail'
+                    prompt : 'Please specify a valid E-mail'
                   }
                 ]
               },
@@ -84,9 +84,14 @@ export class ControllerCart {
         this.renderCart();
     }
 
+    handleClickClose() {
+        this.view.toggleCart();
+    }
+
     renderCart(){
         this.view.renderCart(this.model.pets);
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
         this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
+        this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));
     }
 }

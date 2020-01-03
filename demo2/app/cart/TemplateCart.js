@@ -26,6 +26,9 @@ export class TemplateCart {
     static getCartTemplate() {
         return `<div class="ui bottom sidebar overlay bg-white cartContainer">
                     <div class="ui segment bg-white">
+                    <button class="right floated circular ui icon button closeBtn">
+                      <i class="close icon"></i>
+                    </button>
                         <h2 class="ui center dividing aligned icon header">
                           <i class="circular shopping cart icon"></i>
                           <span class="cartHeader">Shopping Cart</span>
