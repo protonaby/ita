@@ -48,11 +48,16 @@ export class ControllerCart {
     }
 
     handleSubmit() {
-        if( $('.ui.form').form('is valid')) {
-            this.model.emptyCart();
-            this.view.toggleCart();
-            this.notify('empty-cart');
+        if ($('.ui.form').form('is valid')) {
+            this.view.toggleSuccessMessage();
+            setTimeout(this.emptyCart.bind(this), 5000);
         }
+    }
+
+    emptyCart() {
+        this.model.emptyCart();
+        this.view.toggleCart();
+        this.notify('empty-cart');
     }
 
     renderCart(){

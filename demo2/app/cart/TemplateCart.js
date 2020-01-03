@@ -80,6 +80,10 @@ export class TemplateCart {
                       <textarea rows="2"></textarea>
                     </div>
                     <div class="ui error message"></div>
+                    <div class="ui success message display-none">
+                      <div class="header">Successful!</div>
+                      <p>Your order was successfully submitted.</p>
+                    </div>
                     <button class="ui basic violet button orderBackBtn">Back</button>
                     <button class="ui green button submitBtn" type="submit">Submit order</button>
                   </form>

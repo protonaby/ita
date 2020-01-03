@@ -40,10 +40,11 @@ export class ViewCart {
     }
 
   addSubmitListener(submitFunc) {
-    this.submit = document.querySelector('.submitBtn');
-    this.submit.addEventListener('click', () => {
+    this.form = document.querySelector('.ui.form');
+    this.form.addEventListener('submit', (e) => {
+      e.preventDefault();
       submitFunc();
-    })
+    });
   }
 
     renderCart(pets) {
@@ -89,4 +90,8 @@ export class ViewCart {
           }
         });
     }
+
+  toggleSuccessMessage() {
+    document.querySelector('.success.message').classList.toggle('display-none');
+  }
 }
