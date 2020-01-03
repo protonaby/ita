@@ -36,6 +36,48 @@ export class ControllerCart {
     handleClickOrder() {
         this.view.renderOrderForm();
         this.view.addClickBackBtnListener(this.handleClickBack.bind(this));
+        $('.ui.form')
+          .form({
+            on: 'blur',
+            fields: {
+              name: {
+                identifier  : 'name',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please specify Name'
+                  }
+                ]
+              },
+              phone: {
+                identifier  : 'phone',
+                rules: [
+                  {
+                    type   : 'regExp[/^\\s*((\\+?\\s*(\\(\\s*)?3)?[\\s-]*(\\(\\s*)?8[\\s-]*)?(\\(\\s*)?0[\\s\\-\\(]*[1-9][\\s-]*\\d(\\s*\\))?([\\s-]*\\d){7}\\s*$/]',
+                    prompt : 'Please specify a valid Phone Number'
+                  }
+                ]
+              },
+              address: {
+                identifier  : 'address',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please specify Address'
+                  }
+                ]
+              },
+              email: {
+                identifier  : 'email',
+                rules: [
+                  {
+                    type   : 'email',
+                    prompt : 'Please enter a valid E-mail'
+                  }
+                ]
+              },
+            }
+          });
     }
 
     handleClickBack() {

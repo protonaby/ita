@@ -51,27 +51,28 @@ export class TemplateCart {
 
     static getOrderFormTemplate() {
         return `<div class="ui container">
-                  <form class="ui form">
+                  <form class="ui small form">
                     <div class="field required">
                       <label>Name</label>
-                      <input type="text" name="first-name" placeholder="Name">
+                      <input type="text" name="name" placeholder="Name">
                     </div>
-                    <div class="field">
+                    <div class="field required">
                       <label>Phone Number</label>
-                      <input type="text" name="last-name" placeholder="Phone Number">
+                      <input type="text" name="phone" placeholder="Phone Number">
                     </div>
                     <div class="field required">
                       <label>Address</label>
-                      <input type="text" name="last-name" placeholder="Address">
+                      <input type="text" name="address" placeholder="Address">
                     </div>
                     <div class="field required">
                       <label>Email</label>
-                      <input type="text" name="last-name" placeholder="Email">
+                      <input type="text" name="email" placeholder="Email">
                     </div>
                       <div class="field">
                       <label>Notes</label>
                       <textarea rows="2"></textarea>
                     </div>
+                    <div class="ui error message"></div>
                     <button class="ui basic violet button orderBackBtn" type="submit">Back</button>
                     <button class="ui green button" type="submit">Submit order</button>
                   </form>
