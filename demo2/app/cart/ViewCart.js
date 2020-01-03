@@ -54,8 +54,7 @@ export class ViewCart {
             cartHtml = pets.map(pet => {
                 return TemplateCart.getCartItemTemplate(pet);
             }).join('');
-            let totalCost = pets.reduce((a, b) => a + (b['price'] || 0), 0).toFixed(2);
-            cartHtml += TemplateCart.getTotalCostTemplate(totalCost);
+            cartHtml += TemplateCart.getTotalCostTemplate(pets.totalCost);
         }
         this.domCartPanel.innerHTML = cartHtml;
         this.domCartHeader.innerHTML = 'Shopping Cart';

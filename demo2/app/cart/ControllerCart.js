@@ -56,7 +56,7 @@ export class ControllerCart {
     }
 
     renderCart(){
-        this.view.renderCart(this.model.getPets());
+        this.view.renderCart(this.model.pets);
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
         this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
         this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));
