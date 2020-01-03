@@ -8,6 +8,7 @@ export class ControllerHeader {
         this.subscribe = subscribe;
         this.subscribe('click-buy-pet', this.handleBuyPet.bind(this));
         this.subscribe('click-cancel-buy-pet', this.handleCancelBuyPet.bind(this));
+        this.subscribe('empty-cart', this.handleEmptyCart.bind(this));
         this.loadCartCountFromStorage();
     }
 
@@ -29,6 +30,10 @@ export class ControllerHeader {
 
     handleCancelBuyPet() {
         this.view.removeItemFromCart();
+    }
+
+    handleEmptyCart() {
+        this.view.emptyCart();
     }
 
     loadCartCountFromStorage() {

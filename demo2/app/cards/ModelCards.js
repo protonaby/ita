@@ -63,4 +63,8 @@ export class ModelCards {
     isPetInCart(id) {
         return this.pets.find(p => p.id === id).inCart;
     }
+
+    removeAllFromCart() {
+        this.pets.forEach(pet => pet.inCart = false);
+    }
 }

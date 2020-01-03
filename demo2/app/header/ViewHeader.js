@@ -23,7 +23,7 @@ export class ViewHeader {
         });
         this.categoryBtns.forEach(btn => btn.addEventListener('click', () => {
             this.search = "";
-            this.setActiveCategoryBtns(btn);
+            this.setActiveCategoryBtn(btn);
             categoryFunc(btn.dataset.category);
         }));
         this.cartBtn.addEventListener('click', () => {
@@ -43,10 +43,10 @@ export class ViewHeader {
         this.categoryBtns.forEach(e => e.classList.remove("active"));
     }
 
-    setActiveCategoryBtns(e) {
-        this.categoryBtns.forEach(e => e.classList.remove("active"));
-        if (!e.classList.contains("brand"))
-            e.classList.add("active");
+    setActiveCategoryBtn(btn) {
+        this.categoryBtns.forEach(b => b.classList.remove("active"));
+        if (!btn.classList.contains("brand"))
+            btn.classList.add("active");
     }
 
     addItemToCart(numItems = 1) {
@@ -55,5 +55,9 @@ export class ViewHeader {
 
     removeItemFromCart() {
         this.cartCount.innerText = Number(this.cartCount.innerText) - 1;
+    }
+
+    emptyCart(){
+        this.cartCount.innerText = 0;
     }
 }

@@ -3,6 +3,10 @@ export class ModelCart {
         this.pets = JSON.parse(sessionStorage.getItem('cart-storage')) || [];
     }
 
+    getPets() {
+        return this.pets;
+    }
+
     getPet(id) {
         return this.pets.find(p => p.id === id);
     }
@@ -14,6 +18,11 @@ export class ModelCart {
 
     removePet(id) {
         this.pets = this.pets.filter(p => p.id !== id);
+        this.updateSessionStorage();
+    }
+
+    emptyCart() {
+        this.pets = [];
         this.updateSessionStorage();
     }
 

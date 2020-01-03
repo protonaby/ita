@@ -19,7 +19,7 @@ export class ViewCart {
 
     addClickOrderBtnListener(orderFunc) {
         this.domOrderBtn = document.querySelector('.orderBtn');
-        if(!this.domOrderBtn) return;
+        if (!this.domOrderBtn) return;
         this.domOrderBtn.addEventListener('click', () => {
             orderFunc();
         })
@@ -38,6 +38,13 @@ export class ViewCart {
             closeFunc();
         })
     }
+
+  addSubmitListener(submitFunc) {
+    this.submit = document.querySelector('.submitBtn');
+    this.submit.addEventListener('click', () => {
+      submitFunc();
+    })
+  }
 
     renderCart(pets) {
         let cartHtml = '';
@@ -62,5 +69,25 @@ export class ViewCart {
     renderOrderForm() {
         this.domCartHeader.innerHTML = 'Shopping Cart > Order';
         this.domCartPanel.innerHTML = TemplateCart.getOrderFormTemplate();
+        setTimeout("document.querySelector('.ui.bottom.sidebar').scrollTo({top: 0, behavior: 'smooth'})", 100);
+        this.addValidationRules();
+    }
+
+    addValidationRules() {
+      $('.ui.form')
+        .form({
+          on: 'blur',
+          fields: {
+            name: {identifier: 'name', rules: [{type: 'empty', prompt: 'Please specify Name'}]},
+            address: {identifier: 'address', rules: [{type: 'empty', prompt: 'Please specify Address'}]},
+            email: {identifier: 'email', rules: [{type: 'email', prompt: 'Please specify a valid E-mail'}]},
+            phone: {
+              identifier: 'phone', rules: [{
+                type: 'regExp[/^\\s*((\\+?\\s*(\\(\\s*)?3)?[\\s-]*(\\(\\s*)?8[\\s-]*)?(\\(\\s*)?0[\\s\\-\\(]*[1-9][\\s-]*\\d(\\s*\\))?([\\s-]*\\d){7}\\s*$/]',
+                prompt: 'Please specify a valid Phone Number'
+              }]
+            },
+          }
+        });
     }
 }

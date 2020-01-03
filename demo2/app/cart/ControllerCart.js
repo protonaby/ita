@@ -36,48 +36,7 @@ export class ControllerCart {
     handleClickOrder() {
         this.view.renderOrderForm();
         this.view.addClickBackBtnListener(this.handleClickBack.bind(this));
-        $('.ui.form')
-          .form({
-            on: 'blur',
-            fields: {
-              name: {
-                identifier  : 'name',
-                rules: [
-                  {
-                    type   : 'empty',
-                    prompt : 'Please specify Name'
-                  }
-                ]
-              },
-              phone: {
-                identifier  : 'phone',
-                rules: [
-                  {
-                    type   : 'regExp[/^\\s*((\\+?\\s*(\\(\\s*)?3)?[\\s-]*(\\(\\s*)?8[\\s-]*)?(\\(\\s*)?0[\\s\\-\\(]*[1-9][\\s-]*\\d(\\s*\\))?([\\s-]*\\d){7}\\s*$/]',
-                    prompt : 'Please specify a valid Phone Number'
-                  }
-                ]
-              },
-              address: {
-                identifier  : 'address',
-                rules: [
-                  {
-                    type   : 'empty',
-                    prompt : 'Please specify Address'
-                  }
-                ]
-              },
-              email: {
-                identifier  : 'email',
-                rules: [
-                  {
-                    type   : 'email',
-                    prompt : 'Please specify a valid E-mail'
-                  }
-                ]
-              },
-            }
-          });
+        this.view.addSubmitListener(this.handleSubmit.bind(this));
     }
 
     handleClickBack() {
@@ -88,8 +47,16 @@ export class ControllerCart {
         this.view.toggleCart();
     }
 
+    handleSubmit() {
+        if( $('.ui.form').form('is valid')) {
+            this.model.emptyCart();
+            this.view.toggleCart();
+            this.notify('empty-cart');
+        }
+    }
+
     renderCart(){
-        this.view.renderCart(this.model.pets);
+        this.view.renderCart(this.model.getPets());
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
         this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
         this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));

@@ -80,8 +80,8 @@ export class TemplateCart {
                       <textarea rows="2"></textarea>
                     </div>
                     <div class="ui error message"></div>
-                    <button class="ui basic violet button orderBackBtn" type="submit">Back</button>
-                    <button class="ui green button" type="submit">Submit order</button>
+                    <button class="ui basic violet button orderBackBtn">Back</button>
+                    <button class="ui green button submitBtn" type="submit">Submit order</button>
                   </form>
                 </div>`;
     }
