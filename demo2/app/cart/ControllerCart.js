@@ -33,6 +33,5 @@ export class ControllerCart {
         this.model.removePet(id);
         this.view.renderCart(this.model.pets);
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
-
     }
 }

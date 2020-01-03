@@ -14,9 +14,9 @@ export class TemplateHeader {
                       <input class="searchInput" placeholder="Search" type="text">
                     </div>
                   </div>
-                  <div class="item">
+                  <div class="item cartBtn">
                     <div class="ui small green circular horizontal label petsInCart">0</div>
-                    <i class="big shopping cart cartBtn icon"></i>
+                    <i class="big shopping cart icon"></i>
                   </div>
                   </div>
                 </div>`;

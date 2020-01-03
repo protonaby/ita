@@ -1,21 +1,25 @@
 export class TemplateCart {
 
     static getCartItemTemplate(pet) {
-        return `<div class="item capitalize">
-                    <img class="ui small bordered rounded image cartImg" src="${pet.image}">
-                    <div class="middle aligned content">
-                    <div class="header">${pet.breed} ${pet.species}</div>
-                    <div class="meta">
-                      <span>Age: ${pet.age}</span>
-                      <span>Gender: ${pet.gender}</span>
-                    </div>
-                    <div class="header">$${pet.price}</div>
-                    <div class="extra">
-                      <div class="ui right floated red basic button removeBtn" data-id="${pet.id}">
-                        Remove from cart
+        return `<div class="ui raised segment">
+                  <div class="ui items ">
+                    <div class="ui item capitalize">
+                      <img class="ui small bordered rounded image cartImg" src="${pet.image}">
+                      <div class="middle aligned content">
+                        <div class="header">${pet.breed} ${pet.species}</div>
+                        <div class="meta">
+                          <span>Age: ${pet.age}</span>
+                          <span>Gender: ${pet.gender}</span>
+                        </div>
+                        <div class="header">$${pet.price}</div>
+                        <div class="extra">
+                          <div class="ui right floated red basic button removeBtn" data-id="${pet.id}">
+                            Remove from cart
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    </div>
+                      </div>
+                  </div>
                 </div>`
     }
 
@@ -34,8 +38,9 @@ export class TemplateCart {
 
     static getTotalCostTemplate(totalCost) {
         return `<div class="item">
-                  <div class="ui right aligned container">
+                  <div class="ui fluid right aligned container">
                     <h2 class="ui header">Total cost: <span class="ui blue small header">$ ${totalCost}</span></h2>
+                    <button class="ui green button">Proceed to order</button>
                   </div>
                 </div>`;
     }

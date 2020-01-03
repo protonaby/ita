@@ -47,6 +47,10 @@
     background: rgba(255, 255, 255, 0.15) !important;
 }
 
+.shopping.cart.icon:hover {
+    color: darkgray;
+}
+
 .flexWrap {
     flex-wrap: wrap;
 }

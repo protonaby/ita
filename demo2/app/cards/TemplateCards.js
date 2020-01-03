@@ -1,7 +1,7 @@
 export class TemplateCards {
 
     static getPetTemplate(pet) {
-        return `<div class="ui centered card capitalize">
+        return `<div class="ui centered raised card capitalize">
                   <img src="${pet.image}">
                     <div class="content">
                         <a class="header">${pet.breed}</a>
