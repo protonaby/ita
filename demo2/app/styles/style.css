@@ -64,8 +64,16 @@
     overflow: hidden !important;
 }
 
-.cartContainer {
-    max-height: 430px !important;
+@media only screen and (max-height: 500px) {
+    .cartContainer {
+        max-height: 430px !important;
+    }
+}
+
+@media only screen and (min-height: 501px) {
+    .cartContainer {
+        max-height: 600px !important;
+    }
 }
 
 .ui.items.cartPanel {

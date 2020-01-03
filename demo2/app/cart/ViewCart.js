@@ -19,6 +19,7 @@ export class ViewCart {
 
     addClickOrderBtnListener(orderFunc) {
         this.domOrderBtn = document.querySelector('.orderBtn');
+        if(!this.domOrderBtn) return;
         this.domOrderBtn.addEventListener('click', () => {
             orderFunc();
         })
