@@ -17,12 +17,17 @@ export class ViewCart {
     }
 
     renderCart(pets) {
-        this.domCartPanel.innerHTML = pets.length > 0
-            ? pets.map(pet => {
+        let cartHtml = '';
+        if (!pets.length) {
+            cartHtml = TemplateCart.getEmptyCartMessageTemplate();
+        } else {
+            cartHtml = pets.map(pet => {
                 return TemplateCart.getCartItemTemplate(pet);
-            }).join('')
-            : TemplateCart.getEmptyCartMessageTemplate();
-
+            }).join('');
+            let totalCost = pets.reduce((a, b) => a + (b['price'] || 0), 0).toFixed(2);
+            cartHtml += TemplateCart.getTotalCostTemplate(totalCost);
+        }
+        this.domCartPanel.innerHTML = cartHtml;
     }
 
     toggleCart() {

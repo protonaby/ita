@@ -32,6 +32,14 @@ export class TemplateCart {
                 </div>`;
     }
 
+    static getTotalCostTemplate(totalCost) {
+        return `<div class="item">
+                  <div class="ui right aligned container">
+                    <h2 class="ui header">Total cost: <span class="ui blue small header">$ ${totalCost}</span></h2>
+                  </div>
+                </div>`;
+    }
+
     static getEmptyCartMessageTemplate() {
         return `<h3 class="ui block center aligned header">Your Shopping Cart is empty.</h3>`;
     }
