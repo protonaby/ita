@@ -2,9 +2,10 @@ import {TemplateHeader} from './TemplateHeader.js';
 
 export class ViewHeader {
 
-    constructor(keyListener, categoryListener, cartListener) {
-        this.renderMenu();
+    constructor(keyListener, categoryListener, cartListener, sortFunc) {
+        this.renderMenu(sortFunc);
         this.addListeners(keyListener, categoryListener, cartListener);
+        this.initDropdown(sortFunc);
     }
 
     renderMenu() {
@@ -29,6 +30,15 @@ export class ViewHeader {
         this.cartBtn.addEventListener('click', () => {
             cartFunc();
         });
+    }
+
+    initDropdown(sortFunc) {
+        $('.dropdown')
+          .dropdown({
+              onChange: function(value, text) {
+                  sortFunc(value);
+              }
+          });
     }
 
     get search() {

@@ -9,7 +9,10 @@ export class ModelCards {
         return fetch(this.urlBase)
             .then(res => res.json())
             .then(res => {
-                res.forEach(pet => pet.age = this.formatAge(pet.birth_date));
+                res.forEach(pet => {
+                    pet.age = this.formatAge(pet.birth_date);
+                    pet.price = pet.price.toFixed(2);
+                });
                 res = res.sort(() => Math.random() - 0.5);
                 this.pets = res;
                 this.totalPets = this.pets.length;
@@ -26,16 +29,31 @@ export class ModelCards {
         });
     }
 
-    getPetsByCount(start = 0, count = 10, search = "") {
+    getPetsByCount(start = 0, count = 10, search = "", sort = "") {
+        let sortFunc = this.getSortFunction(sort);
         if (search.length === 0) {
             this.totalPets = this.pets.length;
-            return this.pets.slice(start, start + count);
+            return this.pets.sort(sortFunc).slice(start, start + count);
         } else {
-            let searchResult = this.pets.filter(p =>
+            let searchResult = this.pets.sort(sortFunc).filter(p =>
                 p.species.toLowerCase().includes(search.toLowerCase())
                 || p.breed.toLowerCase().includes(search.toLowerCase()));
             this.totalPets = searchResult.length;
             return searchResult.slice(start, start + count);
+        }
+    }
+
+    getSortFunction(sort) {
+        if (sort === 'priceAsc') {
+            return (a, b) => a.price - b.price;
+        } else if (sort === 'priceDesc') {
+            return (a, b) => b.price - a.price;
+        } else if (sort === 'ageAsc') {
+            return (a, b) => b.birth_date - a.birth_date;
+        } else if (sort === 'ageDesc') {
+            return (a, b) => a.birth_date - b.birth_date;
+        } else if (sort === '') {
+            return () => 0;
         }
     }
 

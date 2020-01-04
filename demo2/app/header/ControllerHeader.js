@@ -3,7 +3,8 @@ import {ViewHeader} from './ViewHeader.js';
 export class ControllerHeader {
 
     constructor({subscribe, notify}) {
-        this.view = new ViewHeader(this.keyUpInSearchInput.bind(this), this.clickCategory.bind(this), this.clickCart.bind(this));
+        this.view = new ViewHeader(this.keyUpInSearchInput.bind(this), this.clickCategory.bind(this),
+                                   this.clickCart.bind(this), this.clickSort.bind(this));
         this.notify = notify;
         this.subscribe = subscribe;
         this.subscribe('click-buy-pet', this.handleBuyPet.bind(this));
@@ -22,6 +23,10 @@ export class ControllerHeader {
 
     clickCart() {
         this.notify('click-cart');
+    }
+
+    clickSort(value) {
+        this.notify('sort', value);
     }
 
     handleBuyPet() {
