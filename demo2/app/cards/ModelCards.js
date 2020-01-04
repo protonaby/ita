@@ -11,7 +11,7 @@ export class ModelCards {
             .then(res => {
                 res.forEach(pet => {
                     pet.age = this.formatAge(pet.birth_date);
-                    pet.price = pet.price.toFixed(2);
+                    pet.price = Number(pet.price.toFixed(2));
                 });
                 res = res.sort(() => Math.random() - 0.5);
                 this.pets = res;
