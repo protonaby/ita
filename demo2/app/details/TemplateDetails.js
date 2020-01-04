@@ -8,7 +8,7 @@ export class TemplateDetails {
                     </div>
                     <div class="image content">
                         <div class="ui medium image detImage">
-                             <img src="${pet.image}">
+                             <img src="${pet.image}" onError="this.onerror = null; this.src='nophoto.jpg';">
                         </div>
                         <div class="description capitalize">
                             <div class="ui grid">

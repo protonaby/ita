@@ -4,7 +4,7 @@ export class TemplateCart {
         return `<div class="ui raised segment">
                   <div class="ui items ">
                     <div class="ui item capitalize">
-                      <img class="ui small bordered rounded image cartImg" src="${pet.image}">
+                      <img class="ui small bordered rounded image cartImg" src="${pet.image}" onError="this.onerror = null; this.src='nophoto.jpg';">
                       <div class="middle aligned content">
                         <div class="header">${pet.breed} ${pet.species}</div>
                         <div class="meta">

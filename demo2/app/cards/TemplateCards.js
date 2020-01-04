@@ -2,7 +2,7 @@ export class TemplateCards {
 
     static getPetTemplate(pet) {
         return `<div class="ui centered raised card capitalize">
-                  <img src="${pet.image}">
+                  <img src="${pet.image}" onError="this.onerror = null; this.src='nophoto.jpg';">
                     <div class="content">
                         <a class="header">${pet.breed}</a>
                         <div class="meta">
