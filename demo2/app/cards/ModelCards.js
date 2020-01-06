@@ -29,18 +29,19 @@ export class ModelCards {
         });
     }
 
-    getPetsByCount(start = 0, count = 10, search = "", sort = "") {
-        let sortFunc = this.getSortFunction(sort);
-        if (search.length === 0) {
-            this.totalPets = this.pets.length;
-            return this.pets.sort(sortFunc).slice(start, start + count);
-        } else {
-            let searchResult = this.pets.sort(sortFunc).filter(p =>
-                p.species.toLowerCase().includes(search.toLowerCase())
-                || p.breed.toLowerCase().includes(search.toLowerCase()));
-            this.totalPets = searchResult.length;
-            return searchResult.slice(start, start + count);
+    getPetsByCount(start = 0, count = 10, search = "", category = "", sort = "") {
+        if (sort.length > 0) {
+            this.pets.sort(this.getSortFunction(sort));
         }
+        let result = this.pets;
+        if (category.length > 0) {
+            result = result.filter(p => p.species.toLowerCase().includes(category.toLowerCase()));
+        }
+        if (search.length > 0) {
+            result = result.filter(p => p.breed.toLowerCase().includes(search.toLowerCase()));
+        }
+        this.totalPets = result.length;
+        return result.slice(start, start + count);
     }
 
     getSortFunction(sort) {
@@ -52,8 +53,6 @@ export class ModelCards {
             return (a, b) => b.birth_date - a.birth_date;
         } else if (sort === 'ageDesc') {
             return (a, b) => a.birth_date - b.birth_date;
-        } else if (sort === '') {
-            return () => 0;
         }
     }
 

@@ -19,11 +19,9 @@ export class ViewHeader {
 
     addListeners(searchFunc, categoryFunc, cartFunc) {
         this.inputSearch.addEventListener('keyup', () => {
-            this.resetCategoryBtns();
             searchFunc();
         });
         this.categoryBtns.forEach(btn => btn.addEventListener('click', () => {
-            this.search = "";
             this.setActiveCategoryBtn(btn);
             categoryFunc(btn.dataset.category);
         }));

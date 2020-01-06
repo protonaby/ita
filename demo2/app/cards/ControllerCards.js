@@ -11,13 +11,14 @@ export class ControllerCards {
         this.subscribe('new-search', this.loadCardsBySearch.bind(this));
         this.subscribe('click-prev', this.loadPrevPage.bind(this));
         this.subscribe('click-next', this.loadNextPage.bind(this));
-        this.subscribe('click-category', this.loadCardsBySearch.bind(this));
+        this.subscribe('click-category', this.loadCardsByCategory.bind(this));
         this.subscribe('pet-updated', this.handlePetUpdated.bind(this));
         this.subscribe('empty-cart', this.handleEmptyCart.bind(this));
         this.subscribe('sort', this.loadCardsWithSort.bind(this));
         this.currentPage = 0;
         this.pageSize = 10;
         this.search = "";
+        this.category = "";
         this.sort = "";
     }
 
@@ -50,6 +51,12 @@ export class ControllerCards {
         this.renderCards();
     }
 
+    loadCardsByCategory(category) {
+        this.currentPage = 0;
+        this.category = category;
+        this.renderCards();
+    }
+
     loadCardsWithSort(sort) {
         this.currentPage = 0;
         this.sort = sort;
@@ -57,7 +64,7 @@ export class ControllerCards {
     }
 
     renderCards() {
-        const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search, this.sort);
+        const pets = this.model.getPetsByCount(this.currentPage * this.pageSize, this.pageSize, this.search, this.category, this.sort);
         this.view.renderPets(pets);
         this.addListeners();
         this.notify('cards-loaded', {currentPage: this.currentPage, totalPages: this.totalPages});
