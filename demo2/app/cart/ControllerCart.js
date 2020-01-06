@@ -65,7 +65,7 @@ export class ControllerCart {
     }
 
     emptyCart() {
-        this.view.clearForm();
+        this.view.disableForm();
         this.model.emptyCart();
         this.notify('empty-cart');
         setTimeout(() => this.view.hideCart(), 5000);

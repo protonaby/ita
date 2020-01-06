@@ -84,6 +84,7 @@ export class TemplateCart {
                     <div class="ui success message display-none">
                       <div class="header">Successful!</div>
                       <p>Your order was successfully submitted.</p>
+                      <p>Our manager will contact in a little while.</p>
                     </div>
                     <button class="ui basic violet button orderBackBtn">Back</button>
                     <button class="ui green button submitBtn" type="submit">Submit order</button>

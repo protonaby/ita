@@ -76,8 +76,10 @@ export class ViewCart {
             .sidebar('hide');
     }
 
-    clearForm() {
+    disableForm() {
         $('form').form('clear');
+        document.querySelectorAll('.field').forEach(e => e.classList.add('disabled'));
+        document.querySelectorAll('form > button').forEach(e => e.classList.add('disabled'));
     }
 
     renderOrderForm() {
