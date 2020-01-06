@@ -66,6 +66,15 @@ export class ViewCart {
             .sidebar('toggle');
     }
 
+    hideCart() {
+      $('.ui.sidebar')
+        .sidebar('hide');
+    }
+
+    clearForm(){
+      $('form').form('clear');
+    }
+
     renderOrderForm() {
         this.domCartHeader.innerHTML = 'Shopping Cart > Order';
         this.domCartPanel.innerHTML = TemplateCart.getOrderFormTemplate();

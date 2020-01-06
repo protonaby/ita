@@ -50,14 +50,16 @@ export class ControllerCart {
     handleSubmit() {
         if ($('.ui.form').form('is valid')) {
             this.view.toggleSuccessMessage();
-            setTimeout(this.emptyCart.bind(this), 5000);
+            this.notify('order-submitted', this.model.pets);
+            this.emptyCart();
         }
     }
 
     emptyCart() {
+        this.view.clearForm();
         this.model.emptyCart();
-        this.view.toggleCart();
         this.notify('empty-cart');
+        setTimeout(() => this.view.hideCart(), 5000);
     }
 
     renderCart(){
