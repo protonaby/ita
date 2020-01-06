@@ -11,22 +11,20 @@ export class ViewCart {
 
     addClickRemoveBtnsListeners(removeFunc) {
         this.domRmoveBtns = document.querySelectorAll('.removeBtn');
-        if (this.domRmoveBtns)
-            this.domRmoveBtns.forEach(btn => btn.addEventListener('click', (event) => {
-                removeFunc(Number(event.target.dataset.id));
-            }));
+        this.domRmoveBtns.forEach(btn => btn.addEventListener('click', (event) => {
+            removeFunc(Number(event.target.dataset.id));
+        }));
     }
 
   addClickRemoveAllBtnsListeners(removeFunc) {
     this.domRmoveAll = document.querySelector('.removeAllBtn');
-    this.domRmoveAll.addEventListener('click', (event) => {
+    this.domRmoveAll.addEventListener('click', () => {
         removeFunc();
       });
   }
 
     addClickOrderBtnListener(orderFunc) {
         this.domOrderBtn = document.querySelector('.orderBtn');
-        if (!this.domOrderBtn) return;
         this.domOrderBtn.addEventListener('click', () => {
             orderFunc();
         })

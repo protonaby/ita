@@ -73,9 +73,11 @@ export class ControllerCart {
 
     renderCart(){
         this.view.renderCart(this.model.pets);
-        this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
-        this.view.addClickRemoveAllBtnsListeners(this.handleClickRemoveAll.bind(this));
-        this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
         this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));
+        if(this.model.pets.length > 0) {
+            this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
+            this.view.addClickRemoveAllBtnsListeners(this.handleClickRemoveAll.bind(this));
+            this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
+        }
     }
 }
