@@ -17,6 +17,13 @@ export class ViewCart {
             }));
     }
 
+  addClickRemoveAllBtnsListeners(removeFunc) {
+    this.domRmoveAll = document.querySelector('.removeAllBtn');
+    this.domRmoveAll.addEventListener('click', (event) => {
+        removeFunc();
+      });
+  }
+
     addClickOrderBtnListener(orderFunc) {
         this.domOrderBtn = document.querySelector('.orderBtn');
         if (!this.domOrderBtn) return;

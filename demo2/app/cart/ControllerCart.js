@@ -33,6 +33,15 @@ export class ControllerCart {
         this.renderCart();
     }
 
+    handleClickRemoveAll() {
+        this.model.pets.forEach(pet => {
+            this.notify('pet-updated', pet.id);
+            this.notify('click-cancel-buy-pet', this.model.getPet(pet.id));
+            this.model.removePet(pet.id);
+        });
+        this.renderCart();
+    }
+
     handleClickOrder() {
         this.view.renderOrderForm();
         this.view.addClickBackBtnListener(this.handleClickBack.bind(this));
@@ -65,6 +74,7 @@ export class ControllerCart {
     renderCart(){
         this.view.renderCart(this.model.pets);
         this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
+        this.view.addClickRemoveAllBtnsListeners(this.handleClickRemoveAll.bind(this));
         this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
         this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));
     }
