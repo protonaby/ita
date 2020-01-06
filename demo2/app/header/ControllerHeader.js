@@ -4,7 +4,7 @@ export class ControllerHeader {
 
     constructor({subscribe, notify}) {
         this.view = new ViewHeader(this.keyUpInSearchInput.bind(this), this.clickCategory.bind(this),
-                                   this.clickCart.bind(this), this.clickSort.bind(this));
+            this.clickCart.bind(this), this.clickSort.bind(this));
         this.notify = notify;
         this.subscribe = subscribe;
         this.subscribe('click-buy-pet', this.handleBuyPet.bind(this));

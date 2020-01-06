@@ -17,6 +17,7 @@ export class ViewPaginator {
         this.btnsPrev = document.querySelectorAll('.btn_prev');
         this.btnsNext = document.querySelectorAll('.btn_next');
     }
+
     updatePaginator(currPage, totalPages) {
         this.setPrevEnabled(currPage > 0);
         this.setNextEnabled(currPage < totalPages - 1);

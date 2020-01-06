@@ -10,9 +10,9 @@ export class ViewDetails {
         this.domDetails.innerHTML = TemplateDetails.getDetailsTemplate(pet);
         $('.ui.modal').modal('show')
             .modal('setting', 'onHidden', () => {
-            const el = document.querySelector('.ui.dimmer.modals.page');
-            el.parentNode.removeChild(el);
-        });
+                const el = document.querySelector('.ui.dimmer.modals.page');
+                el.parentNode.removeChild(el);
+            });
     }
 
     addBuyPetListener(buyPetFunc) {

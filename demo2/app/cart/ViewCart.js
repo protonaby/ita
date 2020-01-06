@@ -16,12 +16,12 @@ export class ViewCart {
         }));
     }
 
-  addClickRemoveAllBtnsListeners(removeFunc) {
-    this.domRmoveAll = document.querySelector('.removeAllBtn');
-    this.domRmoveAll.addEventListener('click', () => {
-        removeFunc();
-      });
-  }
+    addClickRemoveAllBtnsListeners(removeFunc) {
+        this.domRmoveAll = document.querySelector('.removeAllBtn');
+        this.domRmoveAll.addEventListener('click', () => {
+            removeFunc();
+        });
+    }
 
     addClickOrderBtnListener(orderFunc) {
         this.domOrderBtn = document.querySelector('.orderBtn');
@@ -44,13 +44,13 @@ export class ViewCart {
         })
     }
 
-  addSubmitListener(submitFunc) {
-    this.form = document.querySelector('.ui.form');
-    this.form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      submitFunc();
-    });
-  }
+    addSubmitListener(submitFunc) {
+        this.form = document.querySelector('.ui.form');
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitFunc();
+        });
+    }
 
     renderCart(pets) {
         let cartHtml = '';
@@ -72,12 +72,12 @@ export class ViewCart {
     }
 
     hideCart() {
-      $('.ui.sidebar')
-        .sidebar('hide');
+        $('.ui.sidebar')
+            .sidebar('hide');
     }
 
-    clearForm(){
-      $('form').form('clear');
+    clearForm() {
+        $('form').form('clear');
     }
 
     renderOrderForm() {
@@ -105,12 +105,11 @@ export class ViewCart {
         });
     }
 
-  toggleSuccessMessage() {
-    document.querySelector('.success.message').classList.toggle('display-none');
-  }
+    toggleSuccessMessage() {
+        document.querySelector('.success.message').classList.toggle('display-none');
+    }
 
-  getFormData() {
-    return $('.ui.form').form('get values');
-
-  }
+    getFormData() {
+        return $('.ui.form').form('get values');
+    }
 }

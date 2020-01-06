@@ -34,11 +34,11 @@ export class ViewHeader {
 
     initDropdown(sortFunc) {
         $('.dropdown')
-          .dropdown({
-              onChange: function(value, text) {
-                  sortFunc(value);
-              }
-          });
+            .dropdown({
+                onChange: function (value, text) {
+                    sortFunc(value);
+                }
+            });
     }
 
     get search() {
@@ -67,7 +67,7 @@ export class ViewHeader {
         this.cartCount.innerText = Number(this.cartCount.innerText) - 1;
     }
 
-    emptyCart(){
+    emptyCart() {
         this.cartCount.innerText = 0;
     }
 }
