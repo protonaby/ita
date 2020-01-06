@@ -103,4 +103,9 @@ export class ViewCart {
   toggleSuccessMessage() {
     document.querySelector('.success.message').classList.toggle('display-none');
   }
+
+  getFormData() {
+    return $('.ui.form').form('get values');
+
+  }
 }

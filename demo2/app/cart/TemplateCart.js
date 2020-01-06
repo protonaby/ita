@@ -77,7 +77,7 @@ export class TemplateCart {
                     </div>
                     <div class="field">
                       <label>Notes</label>
-                      <textarea rows="2"></textarea>
+                      <textarea rows="2" name="notes"></textarea>
                     </div>
                     <div class="ui error message"></div>
                     <div class="ui success message display-none">

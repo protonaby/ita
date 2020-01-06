@@ -50,7 +50,7 @@ export class ControllerCart {
     handleSubmit() {
         if ($('.ui.form').form('is valid')) {
             this.view.toggleSuccessMessage();
-            this.notify('order-submitted', this.model.pets);
+            this.notify('order-submitted', {pets: this.model.pets, order: this.view.getFormData()});
             this.emptyCart();
         }
     }
