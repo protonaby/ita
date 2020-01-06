@@ -43,6 +43,7 @@ export class TemplateCart {
         return `<div class="item">
                   <div class="ui fluid right aligned container">
                     <h2 class="ui header">Total cost: <span class="ui blue small header">$ ${totalCost}</span></h2>
+                    <button class="ui red basic button removeAllBtn">Remove all</button>
                     <button class="ui green button orderBtn">Proceed to order</button>
                   </div>
                 </div>`;
