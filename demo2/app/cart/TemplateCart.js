@@ -6,7 +6,7 @@ export class TemplateCart {
                     <div class="ui item capitalize">
                       <img class="ui small bordered rounded image cartImg" src="${pet.image}" onError="this.onerror = null; this.src='nophoto.jpg';">
                       <div class="middle aligned content">
-                        <div class="header">${pet.breed} ${pet.species}</div>
+                        <a class="header detailsLink" data-id="${pet.id}">${pet.breed} ${pet.species}</a>
                         <div class="meta">
                           <span>Age: ${pet.age}</span>
                           <span>Gender: ${pet.gender}</span>

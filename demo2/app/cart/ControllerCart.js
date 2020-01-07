@@ -19,11 +19,16 @@ export class ControllerCart {
 
     handleCancelBuyPet(pet) {
         this.model.removePet(pet.id);
+        this.renderCart();
     }
 
     toggleCart() {
         this.renderCart();
         this.view.toggleCart();
+    }
+
+    handleClickDetails(id){
+        this.notify('click-details', this.model.getPet(id));
     }
 
     handleClickRemove(id) {
@@ -76,6 +81,7 @@ export class ControllerCart {
         this.view.addClickCloseBtnListener(this.handleClickClose.bind(this));
         if (this.model.pets.length > 0) {
             this.view.addClickRemoveBtnsListeners(this.handleClickRemove.bind(this));
+            this.view.addClickDetailsListeners(this.handleClickDetails.bind(this));
             this.view.addClickRemoveAllBtnsListeners(this.handleClickRemoveAll.bind(this));
             this.view.addClickOrderBtnListener(this.handleClickOrder.bind(this));
         }

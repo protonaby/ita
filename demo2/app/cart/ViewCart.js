@@ -16,6 +16,13 @@ export class ViewCart {
         }));
     }
 
+    addClickDetailsListeners(detFunc) {
+        this.domDtlsLinks = document.querySelectorAll('.detailsLink');
+        this.domDtlsLinks.forEach(link => link.addEventListener('click', (event) => {
+            detFunc(Number(event.target.dataset.id));
+        }));
+    }
+
     addClickRemoveAllBtnsListeners(removeFunc) {
         this.domRmoveAll = document.querySelector('.removeAllBtn');
         this.domRmoveAll.addEventListener('click', () => {
