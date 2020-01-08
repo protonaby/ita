@@ -11,7 +11,7 @@ export class ControllerBot {
     }
 
     sendTlgMsg({pets, order}) {
-        let msg = TemplateBot.getMsgTemplate(pets, order);
+        const msg = TemplateBot.getMsgTemplate(pets, order);
         fetch(`https://api.telegram.org/bot${this.apiKey}/sendMessage?chat_id=${this.chatId}&text=${encodeURIComponent(msg)}&parse_mode=MarkDown`);
     }
 }

@@ -106,7 +106,7 @@ export class ViewCart {
             email: {identifier: 'email', rules: [{type: 'email', prompt: 'Please specify a valid E-mail'}]},
             phone: {
               identifier: 'phone', rules: [{
-                type: 'regExp[/^\s*((\+?\s*(\(\s*)?3)?[\s-]*(\(\s*)?8[\s-]*)?(\(\s*)?0[\s\-\(]*[1-9][\s-]*\d(\s*\))?([\s-]*\d){7}\s*$/]',
+                type: 'regExp[/^\\s*((\\+?\\s*(\\(\\s*)?3)?[\\s-]*(\\(\\s*)?8[\\s-]*)?(\\(\\s*)?0[\\s\\-\\(]*[1-9][\\s-]*\\d(\\s*\\))?([\\s-]*\\d){7}\\s*$/]',
                 prompt: 'Please specify a valid Phone Number'
               }]
             },

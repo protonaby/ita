@@ -2,8 +2,9 @@ export class TemplateBot {
 
     static getMsgTemplate(pets, order) {
         return `
-*${new Date().toLocaleString()} NEW ORDER WAS SUBMITTED*
+*${new Date().toLocaleString()} NEW ORDER SUBMITTED*
 ${TemplateBot.getOrderStrTemplate(order)}
+------------------------------------------
 *Items:*
 ${TemplateBot.getPetsMsgTemplate(pets)}
 ------------------------------------------
@@ -11,7 +12,8 @@ ${TemplateBot.getPetsMsgTemplate(pets)}
     }
 
     static getOrderStrTemplate(order) {
-        return `*Name:* ${order.name}
+        return `------------------------------------------
+*Name:* ${order.name}
 *Phone:* ${order.phone}
 *Email:* ${order.email}
 *Address:* ${order.address}
