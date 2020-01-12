@@ -17,7 +17,7 @@
   );
   ReactDOM.render(dish, document.getElementById('react-container'));
 
-  var items = [
+  const items = [
     "1 lb Salmon",
     "1 cup Pine Nuts",
     "2 cups Butter Lettuce",
@@ -26,13 +26,20 @@
     "3 cloves of Garlic"
   ];
 
+
+  const IngredientsList = React.createClass({
+    displayName: "IngredientsList",
+    renderListItem(ingredient, i) {
+      return React.createElement("li", {key: i}, ingredient)
+    },
+    render() {
+      return React.createElement("ul", {className: "ingredients"}, this.props.items.map(this.renderListItem))
+    }
+  });
+
   var d = React.createElement("section", {id: "baked-salmon"},
     React.createElement("h1", null, "Baked Salmon"),
-    React.createElement("ul", {"className": "ingredients"},
-      items.map((ingredient, i) =>
-        React.createElement("li", {key: i}, ingredient)
-      )
-    ),
+    React.createElement(IngredientsList, {items}, null),
     React.createElement("section", {"className": "instructions"},
       React.createElement("h2", null, "Cooking Instructions"),
       React.createElement("p", null, "Preheat the oven to 350 degrees."),
