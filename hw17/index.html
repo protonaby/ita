@@ -26,7 +26,7 @@
     "3 cloves of Garlic"
   ];
 
-
+  //Use React.createClass for creating component
   const IngredientsList = React.createClass({
     displayName: "IngredientsList",
     renderListItem(ingredient, i) {
@@ -36,6 +36,26 @@
       return React.createElement("ul", {className: "ingredients"}, this.props.items.map(this.renderListItem))
     }
   });
+
+  //Use React.Component for creating component
+  class IngredientsList2 extends React.Component {
+    renderListItem(ingredient, i) {
+      return React.createElement("li", {key: i}, ingredient)
+    }
+    render() {
+      return React.createElement("ul", {className: "ingredients"},
+        this.props.items.map(this.renderListItem)
+      )
+    }
+  }
+
+  //Use pure function for creating component, AKA functional component
+  const IngredientsList3 = ({items}) =>
+    React.createElement("ul", {className: "ingredients"},
+      items.map((ingredient, i) =>
+        React.createElement("li", {key: i}, ingredient)
+      )
+    );
 
   var d = React.createElement("section", {id: "baked-salmon"},
     React.createElement("h1", null, "Baked Salmon"),
