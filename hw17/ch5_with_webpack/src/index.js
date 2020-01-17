@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Menu from './menu'
+import Menu from './Menu'
 import data from './recipes'
 
-window.React = React;
+window.React = React
 
 render(
     <Menu recipes={data} />,
