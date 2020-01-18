@@ -5,8 +5,10 @@ module.exports = {
     output: {
         path: __dirname + "/dist/assets",
         filename: "bundle.js",
-        publicPath: "assets"
+        publicPath: "assets",
+        sourceMapFilename: 'bundle.map'
     },
+    devtool: '#source-map',
     module: {
         rules: [
             {
@@ -16,7 +18,23 @@ module.exports = {
                 query: {
                     presets: ['env', 'stage-0', 'react']
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader', {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [require('autoprefixer')]
+                    }
+                }]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            warnings: false,
+            mangle: true
+        })
+    ]
 };
