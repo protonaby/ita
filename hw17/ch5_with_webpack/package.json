@@ -6,11 +6,13 @@
   "scripts": {
     "build": "webpack --progress",
     "prestart": "npm run build",
-    "start": "opener dist/index.html"
+    "start": "opener dist/index.html",
+     "build:css": "tailwind build src/style.css -o dist/style.css"
   },
   "dependencies": {
     "react": "16.0.0",
-    "react-dom": "16.0.0"
+    "react-dom": "16.0.0",
+    "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
     "opener": "1.4.3",
